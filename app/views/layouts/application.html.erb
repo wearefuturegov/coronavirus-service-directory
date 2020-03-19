@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to "https://www.camden.gov.uk" do %>
+        <%= image_tag "logo.svg", alt: "Camden Council" %>
+      <% end %>
+    </header>
     <%= yield %>
+    <footer>
+      © 2020 The London Borough of Camden
+    </footer>
   </body>
 </html>

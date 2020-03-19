@@ -17,6 +17,7 @@ Service.create([
             "Good for older people",
             "Has an active social media presence"
         ],
+        category: ["social", "food"],
         url: "#"
     },
     {
@@ -27,6 +28,7 @@ Service.create([
             "Good for older people",
             "Has an active social media presence"
         ],
+        category: ["social"],
         phone: "0777 777 7777"
     },
 
@@ -38,6 +40,7 @@ Service.create([
             "Good for older people",
             "Has an active social media presence"
         ],
+        category: ["social"],
         url: "#",
         phone: "0777 777 7777"
     },

@@ -4,7 +4,6 @@ class CreateServices < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.string :url
-      t.array :key_points
 
       t.timestamps
     end

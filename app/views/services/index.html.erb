@@ -1,0 +1,12 @@
+<%= link_to "Go back", root_path %>
+
+<h1>Your results</h1>
+
+<ol>
+    <%= @services.each do |s| %>
+        <li>
+            <h2><%= s.name %></h2>
+            <p><%= s.description %></p>
+        </li>
+    <% end %>
+<ol>

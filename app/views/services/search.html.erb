@@ -1,5 +1,9 @@
 <h1>Get help if you’re staying at home because of coronavirus</h1>
 
+<p>
+    If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.
+</p>
+
 <%= form_with url: services_path, method: :get, local: true do |f| %>
 
     <fieldset>
@@ -13,7 +17,7 @@
 
     <label for="postcode"><h2>Where do you want to search?</h2></label>
     <p>Enter your Camden postcode</p>
-    <%= f.text_field :postcode, required: true %>
+    <%= f.text_field :postcode, required: true, placeholder: "eg. N1C 4AG" %>
 
     <%= f.submit "See results" %>
 <% end %>

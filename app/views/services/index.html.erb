@@ -1,6 +1,8 @@
 <%= link_to "Go back", root_path %>
 
-<h1>Your results</h1>
+<h1>These groups and services may be able to help</h1>
+
+<p>Showing results near <strong><%= params[:postcode] %></strong></p>
 
 <ol>
     <% @services.each do |s| %>

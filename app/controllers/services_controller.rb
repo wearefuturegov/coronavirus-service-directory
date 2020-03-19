@@ -12,8 +12,8 @@ class ServicesController < ApplicationController
     end
 
     def index
-        byebug
-        @services = Service.where()
+        @services = Service.where("category && ARRAY[?]::varchar[]", params[:categories])
+        # byebug
     end
 
 end

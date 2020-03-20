@@ -2,7 +2,17 @@
 
 A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic.
 
-It uses the `geocoder` gem to add geographic functionality to services.
+It has:
+- A simple search page where the user selects the kind of help they need and gives their postcode
+- A results page showing relevant services, nearest first
+
+It uses the `geocoder` gem to power geocoding functionality.
+
+## Environment variables
+
+- `GOOGLE_API_KEY`: an API key from google with the [geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) enabled
+- `DATASOURCE`: public URL to a csv data source, [see below](#Seeding the production database)
+- `GA_PROPERTY_ID`: optional, for Google Analytics tracking
 
 ## Running it locally
 
@@ -24,7 +34,7 @@ It will be on localhost:3000.
 
 ## Running it on the web
 
-Suitable for 12-factor compliant hosting like Heroku.
+Suitable for [12-factor](https://12factor.net/) compliant hosting like Heroku.
 
 Don't forget to run the database migrations:
 
@@ -32,7 +42,7 @@ Don't forget to run the database migrations:
 rails db:migrate
 ```
 
-### Populating the production database
+### Seeding the production database
 
 It's intended to consume data from a Google Sheet. Download the sheet as a CSV and put it in the root of the app's directory.
 

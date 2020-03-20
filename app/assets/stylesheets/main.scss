@@ -149,6 +149,18 @@ a{
   }
 }
 
+.lede{
+  margin-top: -15px;
+  margin-bottom: 50px;
+  font-size: 1.2rem;
+  color: $grey2;
+  @media screen and (min-width: $breakpoint){
+    margin-top: -35px;
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+  }
+}
+
 .field{
   margin-bottom: 40px;
   border: none;

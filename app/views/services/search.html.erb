@@ -12,6 +12,8 @@
     </ul>
     <h1 class="page-title">Get help if you’re staying at home because of coronavirus</h1>
 
+    <p class="lede">Use this service to find volunteer groups and other services in your local area who can help you cope.</p>
+
     <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p>
 
     <%= form_with url: services_path, method: :get, local: true do |f| %>
@@ -30,7 +32,7 @@
         </fieldset>
 
         <div class="field">
-            <label  class="field__label"for="postcode"><h2>Where do you want to search?</h2></label>
+            <label  class="field__label"for="postcode"><h2>Where are you?</h2></label>
             <p class="field__hint">Enter your Camden postcode</p>
             <%= f.text_field :postcode, required: true, placeholder: "eg. N1C 4AG", class: "field__text-input" %>
         </div>

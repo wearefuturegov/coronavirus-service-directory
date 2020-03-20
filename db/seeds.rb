@@ -49,8 +49,8 @@ Service.create([
         category: ["social"],
         url: "#",
         phone: "0777 777 7777",
-        postcode: "B33 8PP",
-        latitude: 52.4775002727685,
-        longitude: -1.8093153042122
+        postcode: "s10 2ll",
+        latitude: 53.3733359351992,
+        longitude: -1.50328085336585
     },
 ])

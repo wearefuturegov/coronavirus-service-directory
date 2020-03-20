@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: "museo";
-  src: url("/assets/museo500-regular.ttf");
+  src: font-url("museo500-regular.ttf");
   font-weight: bold;
 }
 @font-face {
   font-family: "museo";
-  src: url("/assets/museo300-regular.ttf");
+  src: font-url("museo300-regular.ttf");
   font-weight: normal;
 }
 

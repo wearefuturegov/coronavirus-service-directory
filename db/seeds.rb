@@ -12,11 +12,9 @@ Service.create([
     {
         name: "Example service",
         description: "Eventually, you do plan to have dinosaurs on your dinosaur tour, right? Jaguar shark! So tell me - does it really exist? I was part of something special. Hey, take a look at the earthlings. Goodbye! So you two dig up, dig up dinosaurs? Yes, Yes, without the oops!",
-        key_points: [
-            "24/7 deliveries",
-            "Good for older people",
-            "Has an active social media presence"
-        ],
+        key_point_1: "24/7 deliveries",
+        key_point_2: "Good for older people",
+        key_point_3: "Has an active social media presence",
         category: ["social", "food"],
         url: "#",
         postcode: "B33 8PP",
@@ -26,11 +24,9 @@ Service.create([
     {
         name: "Second example service",
         description: "Goodbye! So you two dig up, dig up dinosaurs? Yes, Yes, without the oops!",
-        key_points: [
-            "24/7 deliveries",
-            "Good for older people",
-            "Has an active social media presence"
-        ],
+        key_point_1: "24/7 deliveries",
+        key_point_2: "Good for older people",
+        key_point_3: "Has an active social media presence",
         category: ["social"],
         phone: "0777 777 7777",
         postcode: "B33 8PP",
@@ -41,11 +37,9 @@ Service.create([
     {
         name: "Third example service",
         description: "Jaguar shark! So tell me - does it really exist? I was part of something special. Hey, take a look at the earthlings. Goodbye! So you two dig up.",
-        key_points: [
-            "24/7 deliveries",
-            "Good for older people",
-            "Has an active social media presence"
-        ],
+        key_point_1: "24/7 deliveries",
+        key_point_2: "Good for older people",
+        key_point_3: "Has an active social media presence",
         category: ["social"],
         url: "#",
         phone: "0777 777 7777",

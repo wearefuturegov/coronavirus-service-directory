@@ -8,11 +8,12 @@ class ServicesController < ApplicationController
             ["Staying social", "social"],
             ["Book drops and entertainment", "entertainment"]
         ]
-        # byebug
     end
 
     def index
-        @services = Service.where("category && ARRAY[?]::varchar[]", params[:categories])
+        @services = Service
+            .where("category && ARRAY[?]::varchar[]", params[:categories])
+            .near(params[:postcode], 200)
         # byebug
     end
 

@@ -18,7 +18,10 @@ Service.create([
             "Has an active social media presence"
         ],
         category: ["social", "food"],
-        url: "#"
+        url: "#",
+        postcode: "B33 8PP",
+        latitude: 52.4775002727685,
+        longitude: -1.8093153042122
     },
     {
         name: "Second example service",
@@ -29,7 +32,10 @@ Service.create([
             "Has an active social media presence"
         ],
         category: ["social"],
-        phone: "0777 777 7777"
+        phone: "0777 777 7777",
+        postcode: "B33 8PP",
+        latitude: 52.4775002727685,
+        longitude: -1.8093153042122
     },
 
     {
@@ -42,6 +48,9 @@ Service.create([
         ],
         category: ["social"],
         url: "#",
-        phone: "0777 777 7777"
+        phone: "0777 777 7777",
+        postcode: "B33 8PP",
+        latitude: 52.4775002727685,
+        longitude: -1.8093153042122
     },
 ])

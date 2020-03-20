@@ -1,4 +1,4 @@
-<%= form_with(model: admin_service, local: true) do |form| %>
+<%= simple_form_for [:admin, admin_service] do |form| %>
   <% if admin_service.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(admin_service.errors.count, "error") %> prohibited this admin_service from being saved:</h2>
@@ -10,6 +10,14 @@
       </ul>
     </div>
   <% end %>
+
+  <%= form.input :name %>
+  <%= form.input :description %>
+  <%= form.input :url %>
+  <%= form.input :key_points %>
+  <%= form.input :phone %>
+  <%= form.input :category %>
+  <%= form.input :postcode %>
 
   <div class="actions">
     <%= form.submit %>

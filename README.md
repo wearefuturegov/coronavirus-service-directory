@@ -31,3 +31,9 @@ Don't forget to run the database migrations:
 ```
 rails db:migrate
 ```
+
+### Populating the production database
+
+It's intended to consume data from a Google Sheet. Download the sheet as a CSV and put it in the root of the app's directory.
+
+Running `rails csv` will run a custom rake task to parse the CSV file and seed the database from it.

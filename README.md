@@ -1,24 +1,30 @@
-# README
+# Camden coronavirus response service directory
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic.
 
-Things you may want to cover:
+It uses the `geocoder` gem to add geographic functionality to services.
 
-* Ruby version
+## Running it locally
 
-* System dependencies
+You need ruby, rails and a local postgresql server running.
 
-* Configuration
+```
+bundle install
+# create database and run migrations
+rails db:setup
+# populate initial database
+rails db:seed
+rails s
+```
 
-* Database creation
+It will be on localhost:3000.
 
-* Database initialization
+## Running it on the web
 
-* How to run the test suite
+Suitable for 12-factor compliant hosting like Heroku.
 
-* Services (job queues, cache servers, search engines, etc.)
+Don't forget to run the database migrations:
 
-* Deployment instructions
-
-* ...
+```
+rails db:migrate
+```

@@ -43,7 +43,7 @@ class Admin::ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_service.update(admin_service_params)
-        format.html { redirect_to @admin_service, notice: 'Service was successfully updated.' }
+        format.html { redirect_to [:admin, @admin_service], notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_service }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class Admin::ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_service_params
-      params.fetch(:admin_service, {})
+      params.require(:service).permit(:name, :desctiption, :url, :key_points, :category, :postcode, :phone)
     end
 end

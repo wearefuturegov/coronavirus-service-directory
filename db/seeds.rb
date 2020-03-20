@@ -19,7 +19,9 @@ Service.create([
         url: "#",
         postcode: "B33 8PP",
         latitude: 52.4775002727685,
-        longitude: -1.8093153042122
+        longitude: -1.8093153042122,
+        recommended: true,
+        how_to_contact: "Ask for Jan"
     },
     {
         name: "Second example service",
@@ -31,7 +33,8 @@ Service.create([
         phone: "0777 777 7777",
         postcode: "B33 8PP",
         latitude: 52.4775002727685,
-        longitude: -1.8093153042122
+        longitude: -1.8093153042122,
+        how_to_contact: "Post on the Facebook group"
     },
 
     {
@@ -45,6 +48,7 @@ Service.create([
         phone: "0777 777 7777",
         postcode: "s10 2ll",
         latitude: 53.3733359351992,
-        longitude: -1.50328085336585
+        longitude: -1.50328085336585,
+        how_to_contact: "Ask for Flora"
     },
 ])

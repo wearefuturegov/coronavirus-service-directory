@@ -1,15 +1,18 @@
-$white: #FFFFFF;
-$grey1: #2A2828;
-$grey2: #54585A;
-$pale: #ECECE7;
-$blue1: #42807B;
-$blue2: #A0CAC9;
-$yellow: #EAD95B;
-$max-width: 1000px;
-$breakpoint: 750px;
+@import "_variables.scss";
+
+@font-face {
+  font-family: "museo";
+  src: url("museo500-regular.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "museo";
+  src: url("museo300-regular.ttf");
+  font-weight: normal;
+}
 
 *{
-    font-family: Helvetica Neue, Arial, Helvetica, sans-serif, sans-serif;
+    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -19,12 +22,14 @@ body{
   background: $grey1;
 }
 
-h1, h2, h3, h4, h5, p{
+h1, h2, h3, h4, h5{
+  font-family: "museo", Helvetica Neue, Arial, Helvetica, sans-serif;
   color: $grey1;
 }
 
 p{
   line-height: 1.5;
+  color: $grey1;
 }
 
 a{
@@ -90,13 +95,17 @@ a{
 
 .button{
   background: $yellow;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 15px;
   font-weight: bold;
   font-size: 1.1rem;
   text-align: center;
   color: $grey1;
+  text-decoration: none;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -109,9 +118,16 @@ a{
     background: darken($yellow, 20);
     box-shadow: none;
   }
+  &:focus{
+    outline: none;
+  }
   @media screen and (min-width: $breakpoint){
     max-width: 250px;
     font-size: 1.2rem
+  }
+  .button__icon{
+    margin-left: 10px;
+    height: 15px;
   }
 }
 
@@ -119,7 +135,7 @@ a{
   padding: 25px;
   background: transparentize($blue2, 0.5);
   border-left: 4px solid $blue1;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
 .breadcrumbs{
@@ -159,96 +175,26 @@ a{
     font-size: 1.3rem;
     margin-bottom: 50px;
   }
-}
-
-.field{
-  margin-bottom: 40px;
-  border: none;
-  @media screen and (min-width: $breakpoint){
-    margin-bottom: 50px;
-  }
-  .field__label{
-    margin-bottom: 5px;
-    display: block;
-    @media screen and (min-width: $breakpoint){
-      font-size: 1.2rem;
-      margin-bottom: 7px;
-    }
-  }
-  .field__hint{
-    color: $grey2;
-    margin-bottom: 15px;
-    @media screen and (min-width: $breakpoint){
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-  }
-  .field__text-input{
-    font-size: 1.2rem;
-    padding: 10px;
-    border: 2px solid $grey1;
-    background: $white;
-    width: 100%;
-    &:focus{
-      outline: 3px solid $yellow;
-    }
-    &::placeholder{
-      color: transparentize($grey2, 0.25)
-    }
+  strong{
+    text-transform: uppercase;
   }
 }
 
-.checkboxes{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 30px;
-  margin-bottom: -20px;
-}
-
-.checkbox{
-  margin-bottom: 20px;
-  position: relative;
-  padding-left: 50px;
-  padding-top: 10px;
-  &:focus-within label:before{
-    outline: 3px solid $yellow;
+.go-back{
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin-bottom: 15px;
+  img{
+    height: 15px;
+    margin-right: 0px;
   }
-  .checkbox__input{
-    font-size: 2rem;
-    -webkit-appearance:none;
-    width:35px;
-    height:35px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    &:checked + label:after{
-      position: absolute;
-      content: "";
-      display: block;
-      height: 28px;
-      width: 28px;
-      left: 5px;
-      top: 5px;
-      background-image: url("data:image/svg+xml,%3Csvg width='28' height='24' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.1608 5.08025L9.59935 23.3259L0.837891 14.2231L5.16081 10.0623L9.59935 14.6738L22.8379 0.919434L27.1608 5.08025Z' fill='%232A2828'/%3E%3C/svg%3E%0A");
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
-  .checkbox__label{
-    cursor: pointer;
-    color: $grey1;
-    &:before{
-      content: "";
-      display: inline-block;
-      background: $white;
-      border: 2px solid $grey1;
-      width: 35px;
-      height: 35px;
-      position: absolute;
-      left: 0px;
-      top: 0px;
-    }
+  &:hover span{
+    text-decoration: underline;
   }
 }
 
+
+@import 'search.scss';
+@import 'results.scss';

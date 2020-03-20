@@ -1,15 +1,32 @@
-<%= link_to "Go back", root_path %>
+<%= link_to root_path, class: "go-back" do %>
+    <%= image_tag "back.svg", alt: "" %> <span>Go back</span>
+<% end %>
 
-<h1 class="page-title">These groups and services may be able to help</h1>
+<div class="two-thirds">
+    <h1 class="page-title">These groups and services may be able to help</h1>
+    <p class="lede">Showing results near <strong><%= params[:postcode] %></strong></p>
+</div>
 
-<p>Showing results near <strong><%= params[:postcode] %></strong></p>
-
-<ol>
+<ol class="service-results">
     <% @services.each do |s| %>
-        <li>
-            <h2><%= s.name %></h2>
-            <p><%= s.description %></p>
-            <small><%= s.rough_distance %></small>
+        <li class="service-card">
+            <h2 class="service-card__name"><%= s.name %></h2>
+            <p class="service-card__description"><%= s.description %></p>
+            <small class="service-card__distance"><%= s.rough_distance %></small>
+
+            <ul class="service-card__key-points">
+                <li class="service-card__key-point"><%= s.key_point_1 %></li>
+                <li class="service-card__key-point"><%= s.key_point_2 %></li>
+                <li class="service-card__key-point"><%= s.key_point_3 %></li>
+            </ul>
+
+            <a href="<%= s.url %>%" class="button">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
+            <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
         </li>
     <% end %>
 <ol>
+
+<section class="safeguarding">
+    <h2>Can't find what you need?</h2>
+    <p>If you’re worried about yourself or someone you care about, <a href="#">contact our safeguarding team</a>.</p>
+</section>

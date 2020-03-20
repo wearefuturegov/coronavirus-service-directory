@@ -6,7 +6,7 @@ It has:
 - 🕵️‍♀️ A simple **search page** where the user selects the kind of help they need and gives their postcode
 - 📍 A **results page** showing relevant services, nearest first
 
-It uses the [`geocoder`](https://github.com/alexreisner/geocoder) gem and [Google's geocoding API]((https://developers.google.com/maps/documentation/geocoding/intro)) to power geographical functionality.
+It uses the [`geocoder`](https://github.com/alexreisner/geocoder) gem and [Google's geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) to power geographical functionality.
 
 ## Configuration
 

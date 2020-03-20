@@ -90,9 +90,10 @@
 
 
 .safeguarding{
-    padding: 35px;
-    border: 2px solid $blue1;
-    border-radius: 5px;
+    padding: 35px 0px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
     h2{
         color: $blue1;
         margin-bottom: 10px;

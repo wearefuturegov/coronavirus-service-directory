@@ -10,18 +10,20 @@
 <ol class="service-results">
     <% @services.each do |s| %>
         <li class="service-card">
-            <h2 class="service-card__name"><%= s.name %></h2>
-            <p class="service-card__description"><%= s.description %></p>
-            <small class="service-card__distance"><%= s.rough_distance %></small>
-
+            <header class="service-card__header">
+                <h2 class="service-card__name"><%= s.name %></h2>
+                <p class="service-card__description"><%= s.description %></p>
+                <small class="service-card__distance"><%= s.rough_distance %></small>
+            </header>
             <ul class="service-card__key-points">
                 <li class="service-card__key-point"><%= s.key_point_1 %></li>
                 <li class="service-card__key-point"><%= s.key_point_2 %></li>
                 <li class="service-card__key-point"><%= s.key_point_3 %></li>
             </ul>
-
-            <a href="<%= s.url %>%" class="button">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
-            <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
+            <footer class="service-card__footer">
+                <a href="<%= s.url %>%" class="button">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
+                <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
+            </footer>
         </li>
     <% end %>
 <ol>

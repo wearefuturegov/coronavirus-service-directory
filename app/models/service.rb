@@ -18,7 +18,8 @@ class Service < ApplicationRecord
       ["Dog walking", "dogs"],
       ["Prescription pickups", "prescriptions"],
       ["Staying social", "social"],
-      ["Book drops and entertainment", "entertainment"]
+      ["Book drops and entertainment", "entertainment"],
+      ["Physical and mental wellbeing", "wellbeing"]
     ]
   end
 

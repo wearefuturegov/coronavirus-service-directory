@@ -195,6 +195,27 @@ a{
   }
 }
 
+.beta-banner{
+  background: $pale;
+  padding: 10px 15px 0px 15px;
+  font-size: 0.9rem;
+  .beta-banner__inner{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .beta-banner__tag{
+    background: $yellow;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    margin-right: 10px;
+    color: $grey1;
+  }
+  .beta-banner__message{
+    padding-top: 1px;
+  }
+}
+
 
 @import 'search.scss';
 @import 'results.scss';

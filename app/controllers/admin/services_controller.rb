@@ -70,6 +70,6 @@ class Admin::ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_service_params
-      params.require(:service).permit(:name, :desctiption, :url, :key_points, :category, :postcode, :phone)
+      params.require(:service).permit(:name, :desctiption, :url, :key_points, :postcode, :phone, category: [])
     end
 end

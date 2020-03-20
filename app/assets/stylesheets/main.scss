@@ -62,7 +62,7 @@ a{
 
 .main-content-area{
   padding: 40px 15px;
-  background: $pale;
+  background: $very-pale;
   @media screen and (min-width: $breakpoint){
     padding: 60px 15px 80px 15px;
   }
@@ -175,9 +175,6 @@ a{
     font-size: 1.3rem;
     margin-bottom: 50px;
   }
-  strong{
-    text-transform: uppercase;
-  }
 }
 
 .go-back{
@@ -196,7 +193,7 @@ a{
 }
 
 .beta-banner{
-  background: $pale;
+  background: $very-pale;
   padding: 10px 15px 0px 15px;
   font-size: 0.9rem;
   .beta-banner__inner{

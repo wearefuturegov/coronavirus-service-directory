@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # admin routes
   namespace :admin do
+    # root "services#search"
     resources :services
   end
 

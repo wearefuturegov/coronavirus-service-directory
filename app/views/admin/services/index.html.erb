@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_services.each do |admin_service| %>
+      <tr>
+        <td><%= admin_service.name %>
+        <td><%= link_to 'Show', admin_service_path(admin_service) %></td>
+        <td><%= link_to 'Edit', edit_admin_service_path(admin_service) %></td>
+        <td><%= link_to 'Destroy', admin_service_path(admin_service), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Service', new_admin_service_path %>

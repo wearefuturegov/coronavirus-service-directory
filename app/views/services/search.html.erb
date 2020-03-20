@@ -1,24 +1,39 @@
 <div class="two-thirds">
-    <h1>Get help if you’re staying at home because of coronavirus</h1>
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__crumb">
+            <a href="https://www.camden.gov.uk/" lass="breadcrumbs__link">Home</a>
+        </li>
+        <li class="breadcrumbs__crumb">
+            <a href="https://www.camden.gov.uk/COVID-19" lass="breadcrumbs__link">Coronavirus</a>
+        </li>
+        <li class="breadcrumbs__crumb">
+            Get self-isolation help
+        </li>
+    </ul>
+    <h1 class="page-title">Get help if you’re staying at home because of coronavirus</h1>
 
-    <p>
-        If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.
-    </p>
+    <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p>
 
     <%= form_with url: services_path, method: :get, local: true do |f| %>
 
-        <fieldset>
-            <legend><h2>What do you need help with?</h2></legend>
-            <p>Select as many as you like</p>
-            <% @categories.each do |c| %>
-                <input type="checkbox" name="categories[]" value="<%= c[1] %>" id="<%= c[1] %>">
-                <label for="<%= c[1] %>"><%= c[0] %></label>
-            <% end %>
+        <fieldset class="field">
+            <legend class="field__label"><h2>What do you need help with?</h2></legend>
+            <p class="field__hint">Select as many as you like</p>
+            <div class="checkboxes">
+                <% @categories.each do |c| %>
+                    <div class="checkbox">
+                        <input class="checkbox__input" type="checkbox" name="categories[]" value="<%= c[1] %>" id="<%= c[1] %>">
+                        <label class="checkbox__label" for="<%= c[1] %>"><%= c[0] %></label>
+                    </div>
+                <% end %>
+            </div>
         </fieldset>
 
-        <label for="postcode"><h2>Where do you want to search?</h2></label>
-        <p>Enter your Camden postcode</p>
-        <%= f.text_field :postcode, required: true, placeholder: "eg. N1C 4AG" %>
+        <div class="field">
+            <label  class="field__label"for="postcode"><h2>Where do you want to search?</h2></label>
+            <p class="field__hint">Enter your Camden postcode</p>
+            <%= f.text_field :postcode, required: true, placeholder: "eg. N1C 4AG", class: "field__text-input" %>
+        </div>
 
         <%= f.submit "See results", class: "button" %>
     <% end %>

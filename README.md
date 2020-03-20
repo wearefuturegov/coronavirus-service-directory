@@ -8,10 +8,14 @@ It has:
 
 It uses the `geocoder` gem to power geocoding functionality.
 
-## Environment variables
+## Configuration
+
+The list of categories that can be searched by are defined in `app/model/service.rb`. Make sure the data source matches these.
+
+The following environment variables can be set:
 
 - `GOOGLE_API_KEY`: an API key from google with the [geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) enabled
-- `DATASOURCE`: public URL to a csv data source, [see below](#seeding-the-production-database)
+- `DATASOURCE`: optional, public URL to a csv data source, [see below](#seeding-the-production-database)
 - `GA_PROPERTY_ID`: optional, for Google Analytics tracking
 
 ## Running it locally
@@ -44,6 +48,6 @@ rails db:migrate
 
 ### Seeding the production database
 
-It's intended to consume data from a Google Sheet. Download the sheet as a CSV and put it in the root of the app's directory.
+It's intended to consume data from a Google Sheet.
 
-Running `rails csv` will run a custom rake task to parse the CSV file and seed the database from it.
+If you have the `DATASOURCE` environment variable set, running `rails csv` will run a custom rake task to parse the CSV data and seed the database from it.

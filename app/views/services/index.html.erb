@@ -17,9 +17,15 @@
                 <small class="service-card__distance"><%= s.rough_distance %></small>
             </header>
             <ul class="service-card__key-points">
-                <li class="service-card__key-point"><%= s.key_point_1 %></li>
-                <li class="service-card__key-point"><%= s.key_point_2 %></li>
-                <li class="service-card__key-point"><%= s.key_point_3 %></li>
+                <% if s.key_point_1 %>
+                    <li class="service-card__key-point"><%= s.key_point_1 %></li>
+                <% end %>
+                <% if s.key_point_2 %>
+                    <li class="service-card__key-point"><%= s.key_point_2 %></li>
+                <% end %>
+                <% if s.key_point_3 %>
+                    <li class="service-card__key-point"><%= s.key_point_3 %></li>
+                <% end %>
             </ul>
             <footer class="service-card__footer">
                 <% if s.url %>

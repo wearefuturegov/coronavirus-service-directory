@@ -1,10 +1,10 @@
 require 'csv'
 
 task :csv => :environment do
-
     Service.destroy_all
 
-    rows = CSV.parse(File.read("data.csv"), headers: true)
+    response = HTTParty.get(ENV["DATASOURCE"])
+    rows = CSV.parse(response.body, headers: true)
 
     rows.drop(3).each do |row|
         service = Service.new
@@ -13,7 +13,6 @@ task :csv => :environment do
         service.description = row[1]
 
         categories = []
-
         if row[2] == "Yes"
             categories.push("food")
         end
@@ -35,7 +34,6 @@ task :csv => :environment do
         if row[8] == "Yes"
             categories.push("wellbeing")
         end
-
         service.category = categories
 
         service.url = row[9]

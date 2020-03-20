@@ -5,10 +5,10 @@ class ServicesController < ApplicationController
     end
 
     def index
+        results = Geocoder.search(params[:postcode], region: "gb")
         @services = Service
             .where("category && ARRAY[?]::varchar[]", params[:categories])
-            .near(params[:postcode], 200)
-        # byebug
+            .near(results.first.coordinates, 200)
     end
 
 end

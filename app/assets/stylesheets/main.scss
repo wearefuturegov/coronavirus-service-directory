@@ -6,6 +6,7 @@ $blue1: #42807B;
 $blue2: #A0CAC9;
 $yellow: #EAD95B;
 $max-width: 1000px;
+$breakpoint: 750px;
 
 *{
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif, sans-serif;
@@ -13,6 +14,26 @@ $max-width: 1000px;
     margin: 0;
     padding: 0;
 }
+
+body{
+  background: $grey1;
+}
+
+h1, h2, h3, h4, h5, p{
+  color: $grey1;
+}
+
+a{
+  color: $blue1;
+  &:hover{
+    text-decoration: none;
+  }
+  &:focus{
+    background: $yellow;
+    outline: 3px solid $yellow;
+  }
+}
+
 
 .container{
   max-width: $max-width;
@@ -22,11 +43,57 @@ $max-width: 1000px;
 .site-header{
   background: $white;
   padding: 15px;
-  box-shadow: 0px 2px 2px rgba(0,0,0,0.1)
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 2;
+  .site-header__masthead{
+    display: inline-block;
+  }
+}
+
+.main-content-area{
+  padding: 40px 15px;
+  background: $pale;
+  @media screen and (min-width: $breakpoint){
+    padding: 60px 15px;
+  }
+}
+
+.two-thirds{
+  @media screen and (min-width: $breakpoint){
+    max-width: 66.67%;
+  }
 }
 
 .site-footer{
   background: $grey1;
   padding: 50px 15px;
-  color: $white;
+
+  .site-footer__notice{
+    color: $white;
+    margin-bottom: 20px;
+  }
+
+  .site-footer__link{
+    color: $white;
+    display: inline-block;
+    margin-right: 15px;
+    &:focus{
+      color: $grey1;
+    }
+  }
+}
+
+.button{
+  background: $yellow;
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 3px 0px darken($yellow, 20);
 }

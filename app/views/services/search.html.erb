@@ -1,23 +1,25 @@
-<h1>Get help if you’re staying at home because of coronavirus</h1>
+<div class="two-thirds">
+    <h1>Get help if you’re staying at home because of coronavirus</h1>
 
-<p>
-    If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.
-</p>
+    <p>
+        If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.
+    </p>
 
-<%= form_with url: services_path, method: :get, local: true do |f| %>
+    <%= form_with url: services_path, method: :get, local: true do |f| %>
 
-    <fieldset>
-        <legend><h2>What do you need help with?</h2></legend>
-        <p>Select as many as you like</p>
-        <% @categories.each do |c| %>
-            <input type="checkbox" name="categories[]" value="<%= c[1] %>" id="<%= c[1] %>">
-            <label for="<%= c[1] %>"><%= c[0] %></label>
-        <% end %>
-    </fieldset>
+        <fieldset>
+            <legend><h2>What do you need help with?</h2></legend>
+            <p>Select as many as you like</p>
+            <% @categories.each do |c| %>
+                <input type="checkbox" name="categories[]" value="<%= c[1] %>" id="<%= c[1] %>">
+                <label for="<%= c[1] %>"><%= c[0] %></label>
+            <% end %>
+        </fieldset>
 
-    <label for="postcode"><h2>Where do you want to search?</h2></label>
-    <p>Enter your Camden postcode</p>
-    <%= f.text_field :postcode, required: true, placeholder: "eg. N1C 4AG" %>
+        <label for="postcode"><h2>Where do you want to search?</h2></label>
+        <p>Enter your Camden postcode</p>
+        <%= f.text_field :postcode, required: true, placeholder: "eg. N1C 4AG" %>
 
-    <%= f.submit "See results" %>
-<% end %>
+        <%= f.submit "See results", class: "button" %>
+    <% end %>
+</div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CamdenCoronavirus</title>
+    <title>Get help if you're staying at home due to coronavirus | Camden Council</title>
+    <link href="https://www.camden.gov.uk/o/camden-theme/images/favicon.ico" rel="icon" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,19 +14,27 @@
 
     <header class="site-header">
       <div class="container">
-        <%= link_to "https://www.camden.gov.uk" do %>
+        <a href="https://www.camden.gov.uk" class="site-header__masthead">
           <%= image_tag "logo.svg", alt: "Camden Council" %>
-        <% end %>
+        </a>
       </div>
     </header>
 
-    <%= yield %>
+    <div class="main-content-area">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="container">
-        © 2020 The London Borough of Camden
+        <p class="site-footer__notice">© 2020 The London Borough of Camden</p>
+        <nav class="site-footer__menu">
+          <a class="site-footer__link" href="https://www.camden.gov.uk/data-protection-privacy-and-cookies">Privacy & cookies</a>
+          <a class="site-footer__link" href="https://www.camden.gov.uk/contact-camden">Contact us</a>
+        </nav>
       </div>
     </footer>
-    
+
   </body>
 </html>

@@ -3,10 +3,10 @@
 A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic.
 
 It has:
-- A simple search page where the user selects the kind of help they need and gives their postcode
-- A results page showing relevant services, nearest first
+🕵️‍♀️ A simple **search page** where the user selects the kind of help they need and gives their postcode
+📍 A **results page** showing relevant services, nearest first
 
-It uses the `geocoder` gem to power geocoding functionality.
+It uses the [`geocoder`](https://github.com/alexreisner/geocoder) gem to power geocoding functionality.
 
 ## Configuration
 

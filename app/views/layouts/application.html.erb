@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-152782082-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '<%= ENV['GA_PROPERTY_ID'] %>%');
+    </script>
+
     <title>Get help if you're staying at home due to coronavirus | Camden Council</title>
     <link href="https://www.camden.gov.uk/o/camden-theme/images/favicon.ico" rel="icon" />
     <%= csrf_meta_tags %>
@@ -23,7 +33,7 @@
     <section class="beta-banner">
       <div class="beta-banner__inner container">
         <strong class="beta-banner__tag">Beta</strong>
-        <p class="beta-banner__message">We're updating this website every day — <a href="#">your feedback</a> will help us improve it.</p>
+        <p class="beta-banner__message">We're updating this website every day — <a href="https://forms.gle/KccDGFHTpbcGLGob7">your feedback</a> will help us improve it.</p>
       </div>
     </section>
 
@@ -39,7 +49,7 @@
         <nav class="site-footer__menu">
           <a class="site-footer__link" href="https://www.camden.gov.uk/data-protection-privacy-and-cookies">Privacy & cookies</a>
           <a class="site-footer__link" href="https://www.camden.gov.uk/contact-camden">Contact us</a>
-          <a class="site-footer__link" href="#">Give feedback on this service</a>
+          <a class="site-footer__link" href="https://forms.gle/KccDGFHTpbcGLGob7">Give feedback on this service</a>
         </nav>
       </div>
     </footer>

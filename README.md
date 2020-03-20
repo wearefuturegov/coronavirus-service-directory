@@ -1,8 +1,22 @@
 # Camden coronavirus response service directory
 
-A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic.
+A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. Originally commissioned by Camden Borough Council.
 
-It uses the `geocoder` gem to add geographic functionality to services.
+It has:
+- 🕵️‍♀️ A simple **search page** where the user selects the kind of help they need and gives their postcode
+- 📍 A **results page** showing relevant services, nearest first
+
+It uses the [`geocoder`](https://github.com/alexreisner/geocoder) gem and [Google's geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) to power geographical functionality.
+
+## Configuration
+
+The list of categories that can be searched by are defined in `app/model/service.rb`. Make sure the data source matches these.
+
+The following environment variables can be set:
+
+- `GOOGLE_API_KEY`: an API key from google with the geocoding API enabled
+- `DATASOURCE`: optional, public URL to a csv data source, [see below](#seeding-the-production-database)
+- `GA_PROPERTY_ID`: optional, for Google Analytics tracking
 
 ## Running it locally
 
@@ -24,7 +38,7 @@ It will be on localhost:3000.
 
 ## Running it on the web
 
-Suitable for 12-factor compliant hosting like Heroku.
+Suitable for [12-factor](https://12factor.net/) compliant hosting like Heroku.
 
 Don't forget to run the database migrations:
 
@@ -32,8 +46,15 @@ Don't forget to run the database migrations:
 rails db:migrate
 ```
 
-### Populating the production database
+### Seeding the production database
 
-It's intended to consume data from a Google Sheet. Download the sheet as a CSV and put it in the root of the app's directory.
+You can consume data straight from a Google Sheet, if it's formatted in the right way.
 
-Running `rails csv` will run a custom rake task to parse the CSV file and seed the database from it.
+1. Get your data into the right format. Here's an [example sheet](https://docs.google.com/spreadsheets/d/1hLhz_FqSyyO_KP5OiQbEZYiVzo_6dgOIWIb1S57xhMg/) to get you started.
+2. Make sure your sheet is publicly sharable
+3. Add `/export?format=csv` to the end of the URL to get a link to a CSV version, and save that as an environment variable called `DATASOURCE`.
+4. Run `rails csv` using the Heroku console or your hosting's equivalent
+
+It should pull in all the rows from your data sheet and geocode postcodes into latitudes and longitudes.
+
+If your data schema is different, you might need to adjust the `rails csv` task a little. You can see what the task does in `lib/tasks/csv.rake`.

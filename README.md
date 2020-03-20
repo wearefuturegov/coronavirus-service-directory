@@ -1,6 +1,6 @@
 # Camden coronavirus response service directory
 
-A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic.
+A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. Originally commissioned by Camden Borough Council.
 
 It has:
 - 🕵️‍♀️ A simple **search page** where the user selects the kind of help they need and gives their postcode
@@ -48,8 +48,13 @@ rails db:migrate
 
 ### Seeding the production database
 
-It's intended to consume data from a publicly accessible google sheet.
+You can consume data straight from a Google Sheet, if it's formatted in the right way.
 
-If you have the `DATASOURCE` environment variable set, running `rails csv` will run a custom rake task to parse the CSV data and seed the database from it.
+1. Get your data into the right format. Here's an [example sheet](https://docs.google.com/spreadsheets/d/1hLhz_FqSyyO_KP5OiQbEZYiVzo_6dgOIWIb1S57xhMg/) to get you started.
+2. Make sure your sheet is publicly sharable
+3. Add `/export?format=csv` to the end of the URL to get a link to a CSV version, and save that as an environment variable called `DATASOURCE`.
+4. Run `rails csv` using the Heroku console or your hosting's equivalent
 
-You can see what the task is doing in `lib/tasks/csv.rake`.
+It should pull in all the rows from your data sheet and geocode postcodes into latitudes and longitudes.
+
+If your data schema is different, you might need to adjust the `rails csv` task a little. You can see what the task does in `lib/tasks/csv.rake`.

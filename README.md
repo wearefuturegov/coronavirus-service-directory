@@ -10,10 +10,13 @@ You need ruby, rails and a local postgresql server running.
 
 ```
 bundle install
+
 # create database and run migrations
 rails db:setup
+
 # populate initial database
 rails db:seed
+
 rails s
 ```
 

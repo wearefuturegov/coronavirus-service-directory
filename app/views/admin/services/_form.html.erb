@@ -16,7 +16,7 @@
   <%= form.input :url %>
   <%= form.input :key_points %>
   <%= form.input :phone %>
-  <%= form.collection_check_boxes(:category, Service.categories, :first, :last, include_hiddene: false) do |builder| %>
+  <%= form.collection_check_boxes(:category, Service.categories, :last, :first, include_hidden: false) do |builder| %>
     <%= builder.check_box %>
     <%= builder.object.first %>
   <% end %>

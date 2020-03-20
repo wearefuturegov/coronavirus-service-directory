@@ -11,7 +11,7 @@ It uses the `geocoder` gem to power geocoding functionality.
 ## Environment variables
 
 - `GOOGLE_API_KEY`: an API key from google with the [geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) enabled
-- `DATASOURCE`: public URL to a csv data source, [see below](#Seeding the production database)
+- `DATASOURCE`: public URL to a csv data source, [see below](#seeding-the-production-database)
 - `GA_PROPERTY_ID`: optional, for Google Analytics tracking
 
 ## Running it locally

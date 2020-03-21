@@ -52,13 +52,17 @@ a{
 .site-header{
   background: $white;
   padding: 15px;
-  box-shadow: 0px 2px 2px rgba(0,0,0,0.05);
-  position: relative;
-  z-index: 2;
+  // box-shadow: 0px 2px 2px rgba(0,0,0,0.05);
+  // position: relative;
+  // z-index: 2;
   .site-header__masthead{
     display: inline-block;
   }
+  img{
+    display: block;
+  }
 }
+
 
 .main-content-area{
   padding: 40px 15px;

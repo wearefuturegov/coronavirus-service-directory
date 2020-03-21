@@ -5,6 +5,7 @@ A simple directory of services that can help residents cope if they're staying a
 It has:
 - 🕵️‍♀️ A simple **search page** where the user selects the kind of help they need and gives their postcode
 - 📍 A **results page** showing relevant services, nearest first
+- 👩‍💻 A **read-only JSON API** for other applications to consume. Available at `/api/services`
 
 It uses the [`geocoder`](https://github.com/alexreisner/geocoder) gem and [Google's geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) to power geographical functionality.
 

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :services, only: [:index]
+  end
+
   # # admin routes
   # namespace :admin do
   #   # root "services#search"

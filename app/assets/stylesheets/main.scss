@@ -217,6 +217,16 @@ a{
   }
 }
 
+.error{
+  padding: 20px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-left: 4px solid $red;
+  color: $red;
+  margin-bottom: 45px;
+}
+
+
 
 @import 'search.scss';
 @import 'results.scss';

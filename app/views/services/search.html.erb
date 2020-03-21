@@ -16,6 +16,8 @@
 
     <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p>
 
+    <% if notice %><p class="error"><%= notice %></p><%end%>
+
     <%= form_with url: services_path, method: :get, local: true do |f| %>
 
         <fieldset class="field">

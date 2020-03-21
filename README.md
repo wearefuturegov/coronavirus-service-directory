@@ -1,6 +1,8 @@
-# Camden coronavirus response service directory
+# Coronavirus response service directory
 
-A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. Originally commissioned by Camden Borough Council.
+A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. 
+
+Originally commissioned by Camden Borough Council. There are alternate skins for different councils on branches.
 
 It has:
 - 🕵️‍♀️ A simple **search page** where the user selects the kind of help they need and gives their postcode

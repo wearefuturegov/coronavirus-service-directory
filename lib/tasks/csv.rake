@@ -6,6 +6,8 @@ task :csv => :environment do
     response = HTTParty.get(ENV["DATASOURCE"])
     rows = CSV.parse(response.body, headers: true)
 
+    # byebug
+
     rows.drop(3).each do |row|
         service = Service.new
 
@@ -13,25 +15,25 @@ task :csv => :environment do
         service.description = row[1]
 
         categories = []
-        if row[2] == "Yes"
+        if row[2].downcase.strip == "yes"
             categories.push("food")
         end
-        if row[3] == "Yes"
+        if row[3].downcase.strip == "yes"
             categories.push("pets")
         end
-        if row[4] == "Yes"
+        if row[4].downcase.strip == "yes"
             categories.push("social")
         end
-        if row[5] == "Yes"
+        if row[5].downcase.strip == "yes"
             categories.push("financial")
         end
-        if row[6] == "Yes"
+        if row[6].downcase.strip == "yes"
             categories.push("entertainment")
         end
-        if row[7] == "Yes"
+        if row[7].downcase.strip == "yes"
             categories.push("prescription")
         end
-        if row[8] == "Yes"
+        if row[8].downcase.strip == "yes"
             categories.push("wellbeing")
         end
         service.category = categories

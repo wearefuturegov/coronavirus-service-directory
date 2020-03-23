@@ -39,6 +39,8 @@ rails s
 
 It will be on localhost:3000.
 
+As an alternative to installing a local postgres database, `docker-compose up` will set up a local database for you
+
 ## Running it on the web
 
 Suitable for [12-factor](https://12factor.net/) compliant hosting like Heroku.

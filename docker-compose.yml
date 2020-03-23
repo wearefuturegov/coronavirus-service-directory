@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgresql:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: camden_local_db
+      POSTGRES_USER: camden_local_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - database:/var/lib/postgresql/data
+volumes:
+  database:

@@ -15,25 +15,25 @@ task :csv => :environment do
         service.description = row[1]
 
         categories = []
-        if row[2].downcase.strip == "yes"
+        if row[2] && row[2].downcase.strip == "yes"
             categories.push("food")
         end
-        if row[3].downcase.strip == "yes"
+        if row[3] && row[3].downcase.strip == "yes"
             categories.push("pets")
         end
-        if row[4].downcase.strip == "yes"
+        if row[4] && row[4].downcase.strip == "yes"
             categories.push("social")
         end
-        if row[5].downcase.strip == "yes"
+        if row[5] && row[5].downcase.strip == "yes"
             categories.push("financial")
         end
-        if row[6].downcase.strip == "yes"
+        if row[6] && row[6].downcase.strip == "yes"
             categories.push("entertainment")
         end
-        if row[7].downcase.strip == "yes"
+        if row[7] && row[7].downcase.strip == "yes"
             categories.push("prescription")
         end
-        if row[8].downcase.strip == "yes"
+        if row[8] && row[8].downcase.strip == "yes"
             categories.push("wellbeing")
         end
         service.category = categories

@@ -7,9 +7,20 @@
     <p class="lede">Showing results near <strong><%= @result %></strong></p>
 </div>
 
+<!-- todo wrapper for google maps section -->
+<div class="results-map-section">
+  <div class="results-map-section_slider-bar">
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <div class="results-map-section_map"></div>
+</div>
+
 <ol class="service-results">
     <% @services.each do |s| %>
-        <li class="service-card">
+        <li class="service-card" data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
             <header class="service-card__header">
                 <h2 class="service-card__name"><%= s.name %></h2>
                 <p class="service-card__description"><%= s.description %></p>
@@ -44,3 +55,4 @@
     <h2>Can't find what you need?</h2>
     <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/safeguarding-adults">contact our safeguarding team</a>.</p>
 </section>
+<%= javascript_pack_tag 'google-maps' %>

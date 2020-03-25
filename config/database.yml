@@ -23,12 +23,12 @@ default: &default
 
 development:
   <<: *default
-  # database: camden-coronavirus_development
+  database: camden-coronavirus_development
   # Docker-Compose connection settings
-  url: postgresql://localhost:5432
-  database: camden_local_db
-  username: camden_local_user
-  password: password
+  # url: postgresql://localhost:5432
+  # database: camden_local_db
+  # username: camden_local_user
+  # password: password
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

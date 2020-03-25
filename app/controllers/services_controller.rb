@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
         results = Geocoder.search(params[:postcode], region: "gb")
         if results.length > 0
             @result = results.first.formatted_address
+            @coordinates = Geocoder.coordinates(params[:postcode])
             if params[:categories]
                 @services = Service
                 .where("category && ARRAY[?]::varchar[]", params[:categories])

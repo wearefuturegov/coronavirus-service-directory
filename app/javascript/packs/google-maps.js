@@ -1,6 +1,8 @@
 const {Loader} = require('google-maps');
 
-const loader = new Loader('YOUR_BROWSER_API_KEY', {});
+const browserKey = process.env.GOOGLE_BROWSER_API_KEY;
+if (browserKey == null) throw Error('Google API Browser key was not configured');
+const loader = new Loader(browserKey, {});
 
 const addMarker = (map, serviceCard) => {
     const latitude = serviceCard.dataset.latitude;
@@ -26,7 +28,17 @@ const createMap = (element) => {
     });
 };
 
+const onShowOnMapToggleChange = (display, mapElement) => {
+    mapElement.style.display = display ? "block" : "none";
+};
+
 document.addEventListener("DOMContentLoaded", (ev) => {
-    const element = document.querySelectorAll('.results-map-section_map');
-    if (element.length) createMap(element[0]);
+    const element = document.querySelector('.results-map-section_map');
+    if (element) {
+        createMap(element);
+
+        const toggle = document.querySelector('.results-map-section_slider-bar_toggle');
+        if (!toggle) return;
+        toggle.addEventListener('change', e => onShowOnMapToggleChange(e.target.checked, element));
+    }
 });

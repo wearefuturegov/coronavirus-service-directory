@@ -4,18 +4,18 @@
 
 <div class="two-thirds">
     <h1 class="page-title">These groups and services may be able to help</h1>
-    <p class="lede">Showing results near <strong><%= @result %></strong></p>
 </div>
 
 <!-- todo wrapper for google maps section -->
 <div class="results-map-section">
+  <p>Showing results near <strong><%= @result %></strong> <a href="#">Change</a></p>
   <div class="results-map-section_slider-bar">
     <label class="switch">
-      <input type="checkbox">
+      <input type="checkbox" class="results-map-section_slider-bar_toggle">
       <span class="slider round"></span>
     </label>
   </div>
-  <div class="results-map-section_map"></div>
+  <div class="results-map-section_map" style="display:none"></div>
 </div>
 
 <ol class="service-results">

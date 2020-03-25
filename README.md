@@ -24,10 +24,11 @@ The following environment variables can be set:
 
 ## Running it locally
 
-You need ruby, rails and a local postgresql server running.
+You need ruby, rails, node.js, npm and a local postgresql server ready.
 
 ```
 bundle install
+npm install
 
 # create database and run migrations
 rails db:setup

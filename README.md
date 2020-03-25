@@ -18,6 +18,7 @@ The list of categories that can be searched by are defined in `app/model/service
 The following environment variables can be set:
 
 - `GOOGLE_API_KEY`: an API key from google with the geocoding API enabled
+- `GOOGLE_BROWSER_API_KEY`: an API key from google with the maps API enabled.  This will be visible to the general public, and should be locked down accordingly
 - `DATASOURCE`: optional, public URL to a csv data source, [see below](#seeding-the-production-database)
 - `GA_PROPERTY_ID`: optional, for Google Analytics tracking
 

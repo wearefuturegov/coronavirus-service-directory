@@ -140,6 +140,11 @@ a{
   background: transparentize($blue2, 0.5);
   border-left: 4px solid $blue1;
   margin-bottom: 45px;
+  .important__link{
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
 }
 
 .breadcrumbs{

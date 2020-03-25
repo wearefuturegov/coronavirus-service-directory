@@ -31,7 +31,7 @@ task :csv => :environment do
             categories.push("entertainment")
         end
         if row[7] && row[7].downcase.strip == "yes"
-            categories.push("prescription")
+            categories.push("prescriptions")
         end
         if row[8] && row[8].downcase.strip == "yes"
             categories.push("wellbeing")

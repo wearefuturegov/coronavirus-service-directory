@@ -47,6 +47,9 @@ If you're using Docker, `docker-compose up` will set up a local database for you
 
 ## Running it on the web
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](
+https://heroku.com/deploy)
+
 Suitable for [12-factor](https://12factor.net/) compliant hosting like Heroku.
 
 Don't forget to run the database migrations:
@@ -71,3 +74,12 @@ It should pull in all the rows from your data sheet and geocode postcodes into l
 If your data schema is different, you might need to adjust the `rails csv` task a little. You can see what the task does in `lib/tasks/csv.rake`.
 
 You can use Heroku's [Scheduler](https://devcenter.heroku.com/articles/scheduler) add on to run the task regularly - for example, every hour.
+
+## Roadmap
+
+Over the next few weeks to months, we're looking to add:
+
+- an optional **map view**
+- a **recommended service** feature, which bumps one service per category to the top of the list
+- **admin user accounts** and a proper admin panel
+- a form for the public to **submit their own service** suggestions

@@ -6,7 +6,7 @@
     <h1 class="page-title">These groups and services may be able to help</h1>
 </div>
 
-<% if params[:categories].include? "financial" %>
+<% if (params[:categories] && params[:categories].include?("financial")) %>
     <section class="important">
         <p>If your income has stopped or dropped as a result of coronavirus, you might be able to get financial support.</p>
         <a class="important__link" href="https://www.camden.gov.uk/COVID-19">Details and how to apply</a>
@@ -62,4 +62,5 @@
     <h2>Can't find what you need?</h2>
     <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/COVID-19">see our other coronavirus resources</a>.</p>
 </section>
-<%= javascript_pack_tag 'google-maps' %>
+
+<% # javascript_pack_tag 'google-maps' %>

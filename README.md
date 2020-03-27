@@ -66,8 +66,8 @@ We think this is a good way to get new products up and running fast, because the
 
 1. Get your data into the right format. Here's an [example sheet](https://docs.google.com/spreadsheets/d/1hLhz_FqSyyO_KP5OiQbEZYiVzo_6dgOIWIb1S57xhMg/) to get you started.
 2. Make sure your sheet is publicly sharable
-3. Add `/export?format=csv` to the end of the URL to get a link to a CSV version, and save that as an environment variable called `DATASOURCE`.
-4. Run `rails csv` using the Heroku console or your hosting's equivalent
+3. Add `/export?format=csv` to the end of the URL to get a link to a CSV version, and save that as an [environment variable](https://devcenter.heroku.com/articles/config-vars) called `DATASOURCE`.
+4. Run `rails csv` on the hosted app, using the Heroku console or your hosting's equivalent
 
 It should pull in all the rows from your data sheet and geocode postcodes into latitudes and longitudes.
 

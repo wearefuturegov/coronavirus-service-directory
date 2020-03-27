@@ -46,7 +46,7 @@
             </ul>
             <footer class="service-card__footer">
                 <% if s.url %>
-                    <a href="<%= s.url %>" class="button">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
+                    <a href="<%= s.url %>" class="button" target="blank">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
                 <% elsif s.phone %>
                     <p class="service-card__phone"><%= s.phone %> </p>
                 <% elsif s.email %>

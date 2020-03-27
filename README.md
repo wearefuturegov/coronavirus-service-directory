@@ -3,7 +3,7 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](
 https://heroku.com/deploy)
 
-A simple directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. 
+A simple, production-ready directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. 
 
 Originally commissioned by Camden Borough Council. There are alternate skins for different councils on branches. [Read about the project here](https://coronaviruslocalresponse.co.uk/).
 

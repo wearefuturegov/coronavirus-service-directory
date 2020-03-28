@@ -1,4 +1,6 @@
 class Service < ApplicationRecord
+  has_and_belongs_to_many :categories
+
   geocoded_by :postcode
   after_validation :geocode
 
@@ -10,18 +12,6 @@ class Service < ApplicationRecord
       else
         "About #{distance.round} miles away"
       end
-  end
-
-  def self.categories
-    [
-      ["Groceries and cooked meals", "food"],
-      ["Dog walking", "pets"],
-      ["Staying social", "social"],
-      ["Financial support", "financial"],
-      ["Book drops and entertainment", "entertainment"],
-      ["Prescription pickups", "prescriptions"],
-      ["Physical and mental wellbeing", "wellbeing"]
-    ]
   end
 
 end

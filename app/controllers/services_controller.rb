@@ -2,13 +2,11 @@ class ServicesController < ApplicationController
 
     def index
 
-        @categories = Service.categories
+        @categories = Category.all
+        
         results = Geocoder.search(params[:postcode], region: "gb")
 
         if results.length > 0
-            @top_result = Service
-                .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:categories])
-                .limit(1)
 
             @result = results.first.formatted_address
             @coordinates = Geocoder.coordinates(params[:postcode])

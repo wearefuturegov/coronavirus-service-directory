@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+      resources :categories
       resources :services
-      root to: "services#index"
-  end
 
+      root to: "categories#index"
+    end
   root "services#index"
 
   # public routes

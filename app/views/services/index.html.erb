@@ -1,4 +1,4 @@
-
+<div class="two-thirds">
     <ul class="breadcrumbs">
         <li class="breadcrumbs__crumb">
             <a href="https://www.camden.gov.uk/" lass="breadcrumbs__link">Home</a>
@@ -15,8 +15,9 @@
     <p class="lede">Use this service to find volunteer groups and other services in your local area who can help you cope.</p>
 
     <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p>
+</div>
 
-    <% if notice %><p class="error"><%= notice %></p><%end%>
+<% if notice %><p class="error"><%= notice %></p><%end%>
 
     <%= form_with url: services_path, method: :get, local: true do |f| %>
 
@@ -26,8 +27,8 @@
             <div class="checkboxes">
                 <% @categories.each do |c| %>
                     <div class="checkbox">
-                        <input class="checkbox__input" type="checkbox" name="categories[]" value="<%= c[1] %>" id="<%= c[1] %>">
-                        <label class="checkbox__label" for="<%= c[1] %>"><%= c[0] %></label>
+                        <input class="checkbox__input" type="checkbox" name="categories[]" value="<%= c.name %>" id="<%= c.name %>">
+                        <label class="checkbox__label" for="<%= c.name %>"><%= c.long_name %></label>
                     </div>
                 <% end %>
             </div>

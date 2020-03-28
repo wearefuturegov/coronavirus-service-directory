@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ServiceDashboard < Administrate::BaseDashboard
+class CategoryDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,23 +8,12 @@ class ServiceDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    categories: Field::HasMany,
+    services: Field::HasMany,
     id: Field::Number,
     name: Field::String,
-    description: Field::Text,
-    url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    phone: Field::String,
-    latitude: Field::String.with_options(searchable: false),
-    longitude: Field::String.with_options(searchable: false),
-    postcode: Field::String,
-    key_point_1: Field::String,
-    key_point_2: Field::String,
-    key_point_3: Field::String,
-    recommended: Field::Boolean,
-    how_to_contact: Field::String,
-    email: Field::String,
+    long_name: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -34,27 +23,15 @@ class ServiceDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
   name
-  description
-  url
+  long_name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
   name
-  description
-  categories
-  url
-  phone
-  email
-  latitude
-  longitude
-  postcode
-  key_point_1
-  key_point_2
-  key_point_3
-  recommended
-  how_to_contact
+  long_name
+  services
   created_at
   updated_at
   ].freeze
@@ -63,20 +40,9 @@ class ServiceDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  categories
+  services
   name
-  description
-  url
-  phone
-  latitude
-  longitude
-  postcode
-  key_point_1
-  key_point_2
-  key_point_3
-  recommended
-  how_to_contact
-  email
+  long_name
   ].freeze
 
   # COLLECTION_FILTERS
@@ -91,15 +57,15 @@ class ServiceDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how services are displayed
+  # Overwrite this method to customize how categories are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(service)
-  #   "Service ##{service.id}"
+  # def display_resource(category)
+  #   "Category ##{category.id}"
   # end
 
-  def display_resource(service)
-    service.name
+  def display_resource(category)
+    category.long_name
   end
 
 end

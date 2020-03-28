@@ -10,13 +10,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :services, only: [:index]
+    resources :services, only: [:index, :show]
   end
-
-  # # admin routes
-  # namespace :admin do
-  #   # root "services#search"
-  #   resources :services
-  # end
 
 end

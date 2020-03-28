@@ -4,9 +4,7 @@
     <header class="service-card__header">
         <h2 class="service-card__name"><%= s.name %></h2>
         <p class="service-card__description"><%= s.description %></p>
-        <% unless s.recommended %>
-            <small class="service-card__distance"><%= s.rough_distance %></small>
-        <% end %>
+
     </header>
     <ul class="service-card__key-points">
         <% if s.key_point_1 %>

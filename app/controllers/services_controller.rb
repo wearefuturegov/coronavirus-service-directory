@@ -1,10 +1,8 @@
 class ServicesController < ApplicationController
 
-    def search
-        @categories = Service.categories
-    end
-
     def index
+
+        @categories = Service.categories
         results = Geocoder.search(params[:postcode], region: "gb")
 
         if results.length > 0
@@ -15,28 +13,16 @@ class ServicesController < ApplicationController
             @result = results.first.formatted_address
             @coordinates = Geocoder.coordinates(params[:postcode])
 
-            if @top_result.length > 0
-                if params[:categories]
-                    @services = Service
-                        .where("category && ARRAY[?]::varchar[] AND id != ?", params[:categories], @top_result[0].id)
-                        .near(results.first.coordinates, 200)
-                else
-                    @services = Service
-                        .where("id != ?", @top_result[0].id)
-                        .near(results.first.coordinates, 200)
-                end
+            if params[:categories]
+                @services = Service
+                    .where("category && ARRAY[?]::varchar[]", params[:categories])
+                    .near(results.first.coordinates, 200)
             else
-                if params[:categories]
-                    @services = Service
-                        .where("category && ARRAY[?]::varchar[]", params[:categories])
-                        .near(results.first.coordinates, 200)
-                else
-                    @services = Service
-                        .near(results.first.coordinates, 200)
-                end
+                @services = Service
+                    .near(results.first.coordinates, 200)
             end
         else
-            redirect_to search_services_path, :notice => "Couldn't find any services near that location. Please make sure your location is a valid Camden area."
+            @services = Service.all
         end
     end 
 

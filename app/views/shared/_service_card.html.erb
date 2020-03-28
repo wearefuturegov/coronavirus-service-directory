@@ -1,0 +1,32 @@
+<li class="service-card <% if recommended %>
+    service-card--recommended
+<% end %>" data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
+    <header class="service-card__header">
+        <h2 class="service-card__name"><%= s.name %></h2>
+        <p class="service-card__description"><%= s.description %></p>
+        <% unless s.recommended %>
+            <small class="service-card__distance"><%= s.rough_distance %></small>
+        <% end %>
+    </header>
+    <ul class="service-card__key-points">
+        <% if s.key_point_1 %>
+            <li class="service-card__key-point"><%= s.key_point_1 %></li>
+        <% end %>
+        <% if s.key_point_2 %>
+            <li class="service-card__key-point"><%= s.key_point_2 %></li>
+        <% end %>
+        <% if s.key_point_3 %>
+            <li class="service-card__key-point"><%= s.key_point_3 %></li>
+        <% end %>
+    </ul>
+    <footer class="service-card__footer">
+        <% if s.url %>
+            <a href="<%= s.url %>" class="button" target="blank">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
+        <% elsif s.phone %>
+            <p class="service-card__phone"><%= s.phone %> </p>
+        <% elsif s.email %>
+            <a href="mailto:<%= s.email %>%" class="button">Send email <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
+        <% end %>
+        <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
+    </footer>
+</li>

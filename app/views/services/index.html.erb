@@ -13,48 +13,13 @@
     </section>
 <% end %>
 
-<!-- todo wrapper for google maps section -->
-<div class="results-map-section">
-  <p>Showing results near <strong><%= @result %></strong> <%= link_to "Change", root_path %></p>
-  <div class="results-map-section_slider-bar">
-    <!-- <label class="switch">
-      <input type="checkbox" class="results-map-section_slider-bar_toggle">
-      <span class="slider round"></span>
-    </label> -->
-  </div>
-  <!-- <div class="results-map-section_map" style="display:none" data-coordinates="<%= @coordinates %>"></div> -->
-</div>
-
 <ol class="service-results">
+    <% @top_result.each do |s| %>
+        <%= render partial: "shared/service_card", locals: {s: s, recommended: true} %>
+    <% end %>
+
     <% @services.each do |s| %>
-        <li class="service-card" data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
-            <header class="service-card__header">
-                <h2 class="service-card__name"><%= s.name %></h2>
-                <p class="service-card__description"><%= s.description %></p>
-                <small class="service-card__distance"><%= s.rough_distance %></small>
-            </header>
-            <ul class="service-card__key-points">
-                <% if s.key_point_1 %>
-                    <li class="service-card__key-point"><%= s.key_point_1 %></li>
-                <% end %>
-                <% if s.key_point_2 %>
-                    <li class="service-card__key-point"><%= s.key_point_2 %></li>
-                <% end %>
-                <% if s.key_point_3 %>
-                    <li class="service-card__key-point"><%= s.key_point_3 %></li>
-                <% end %>
-            </ul>
-            <footer class="service-card__footer">
-                <% if s.url %>
-                    <a href="<%= s.url %>" class="button" target="blank">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
-                <% elsif s.phone %>
-                    <p class="service-card__phone"><%= s.phone %> </p>
-                <% elsif s.email %>
-                    <a href="mailto:<%= s.email %>%" class="button">Send email <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
-                <% end %>
-                <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
-            </footer>
-        </li>
+        <%= render partial: "shared/service_card", locals: {s: s, recommended: false} %>
     <% end %>
 </ol>
 
@@ -62,5 +27,3 @@
     <h2>Can't find what you need?</h2>
     <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/COVID-19">see our other coronavirus resources</a>.</p>
 </section>
-
-<% # javascript_pack_tag 'google-maps' %>

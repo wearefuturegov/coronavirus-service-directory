@@ -68,3 +68,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'geocoder'
 gem 'httparty'
+gem 'administrate'
+gem 'administrate-field-collection_select'

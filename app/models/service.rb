@@ -1,6 +1,5 @@
 class Service < ApplicationRecord
   has_and_belongs_to_many :categories
-  belongs_to :user
 
   geocoded_by :postcode
   after_validation :geocode

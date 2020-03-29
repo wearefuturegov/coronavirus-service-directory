@@ -25,19 +25,21 @@
             <legend class="field__label"><h2>What do you need help with?</h2></legend>
             <p class="field__hint">Select as many as you like</p>
             <div class="checkboxes">
-                <% @categories.each do |c| %>
+
+                <% Category.all.each do |c| %>
                     <div class="checkbox">
-                        <input class="checkbox__input" type="checkbox" name="categories[]" value="<%= c.name %>" id="<%= c.name %>">
+                        <input class="checkbox__input" type="checkbox" name="categories[]" value="<%= c.name %>" id="<%= c.name %>" <% if params[:categories] && params[:categories].include?(c.name) %>checked<% end %>>
                         <label class="checkbox__label" for="<%= c.name %>"><%= c.long_name %></label>
                     </div>
                 <% end %>
+
             </div>
         </fieldset>
 
         <div class="field">
             <label  class="field__label"for="postcode"><h2>Where are you?</h2></label>
             <p class="field__hint">Enter your Camden postcode</p>
-            <%= f.text_field :postcode, required: true, placeholder: "eg. N1C 4AG", class: "field__text-input" %>
+            <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "field__text-input" %>
         </div>
 
         <%= f.submit "See results", class: "button" %>
@@ -53,13 +55,21 @@
 
 <ol class="service-results">
     <% @services.each do |s| %>
-        <%= render partial: "shared/service_card", locals: {s: s, recommended: false} %>
+    
+        <li>
+            <strong><%= s.name %></strong>
+            <small><% s.categories.each do |c| %>
+            <%= c.name %>
+            <% end %></small>
+        </li>
+
     <% end %>
 </ol>
 
 <section class="safeguarding">
     <h2>Can't find what you need?</h2>
     <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/COVID-19">see our other coronavirus resources</a>.</p>
+    <p>If you represent a group or service that’s offering help during the coronavirus pandemic, <%= link_to "tell us about it", new_service_path %>.</a>
 </section>
 
 <%= javascript_pack_tag 'application' %>

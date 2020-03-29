@@ -1,48 +1,35 @@
 @import "_variables.scss";
 
-@font-face {
-  font-family: "museo";
-  src: font-url("museo500-regular.ttf");
-  font-weight: bold;
-}
-@font-face {
-  font-family: "museo";
-  src: font-url("museo300-regular.ttf");
-  font-weight: normal;
-}
-
 *{
     font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: $text;
 }
 
 body{
-  background: $grey1;
+  background: $pale;
 }
 
 h1, h2, h3, h4, h5{
-  font-family: "museo", Helvetica Neue, Arial, Helvetica, sans-serif;
-  color: $grey1;
+  line-height: 1;
 }
 
 p{
   line-height: 1.5;
-  color: $grey1;
 }
 
 a{
-  color: $blue1;
+  color: $link;
   &:hover{
     text-decoration: none;
   }
   &:focus{
-    background: $yellow;
-    outline: 3px solid $yellow;
+    background: $focus;
+    outline: 1px solid $focus;
   }
 }
-
 
 .container{
   max-width: $max-width;
@@ -52,9 +39,6 @@ a{
 .site-header{
   background: $white;
   padding: 15px;
-  // box-shadow: 0px 2px 2px rgba(0,0,0,0.05);
-  // position: relative;
-  // z-index: 2;
   .site-header__masthead{
     display: inline-block;
   }
@@ -63,10 +47,9 @@ a{
   }
 }
 
-
 .main-content-area{
   padding: 40px 15px;
-  background: $very-pale;
+  background: $pale;
   @media screen and (min-width: $breakpoint){
     padding: 60px 15px 80px 15px;
   }
@@ -79,26 +62,24 @@ a{
 }
 
 .site-footer{
-  background: $grey1;
+  background: $text;
   padding: 50px 15px;
-
   .site-footer__notice{
     color: $white;
     margin-bottom: 20px;
   }
-
   .site-footer__link{
     color: $white;
     display: inline-block;
     margin-right: 15px;
     &:focus{
-      color: $grey1;
+      color: $text;
     }
   }
 }
 
 .button{
-  background: $yellow;
+  background: $link;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -108,22 +89,23 @@ a{
   font-weight: bold;
   font-size: 1.1rem;
   text-align: center;
-  color: $grey1;
+  color: $white;
   text-decoration: none;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  box-shadow: 0px 4px 0px darken($yellow, 20);
+  box-shadow: 0px 4px 0px darken($link, 20);
   &:hover{
-    background: darken($yellow, 10);
+    background: darken($link, 10);
   }
   &:active{
     transform: translateY(4px);
-    background: darken($yellow, 20);
+    background: darken($link, 20);
     box-shadow: none;
   }
   &:focus{
     outline: none;
+    box-shadow: 0px 0px 0px 3px $focus;
   }
   @media screen and (min-width: $breakpoint){
     max-width: 250px;
@@ -137,8 +119,8 @@ a{
 
 .important{
   padding: 25px;
-  background: transparentize($blue2, 0.5);
-  border-left: 4px solid $blue1;
+  background: transparentize($link, 0.9);
+  border-left: 4px solid $link;
   margin-bottom: 45px;
   .important__link{
     display: inline-block;
@@ -152,12 +134,12 @@ a{
   margin-bottom: 15px;
   .breadcrumbs__crumb{
     display: inline-block;
-    color: $grey1;
     &:after{
       display: inline-block;
       content: "/";
       margin-left: 7px;
       margin-right: 7px;
+      color: transparentize($text, 0.5)
     }
     &:last-of-type:after{
       content: none;
@@ -165,40 +147,8 @@ a{
   }
 }
 
-.page-title{
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  @media screen and (min-width: $breakpoint){
-    font-size: 3rem;
-    margin-bottom: 50px;
-  }
-}
-
-.lede{
-  margin-bottom: 50px;
-  font-size: 1.2rem;
-  @media screen and (min-width: $breakpoint){
-    font-size: 1.3rem;
-  }
-}
-
-.go-back{
-  display: inline-block;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-decoration: none;
-  margin-bottom: 15px;
-  img{
-    height: 15px;
-    margin-right: 0px;
-  }
-  &:hover span{
-    text-decoration: underline;
-  }
-}
-
 .beta-banner{
-  background: $very-pale;
+  background: $pale;
   padding: 10px 15px 0px 15px;
   font-size: 0.9rem;
   .beta-banner__inner{
@@ -207,11 +157,11 @@ a{
     align-items: flex-start;
   }
   .beta-banner__tag{
-    background: $yellow;
+    background: $focus;
     text-transform: uppercase;
     padding: 3px 7px;
     margin-right: 10px;
-    color: $grey1;
+    color: $text;
   }
   .beta-banner__message{
     padding-top: 1px;
@@ -222,14 +172,7 @@ a{
   padding: 20px 25px;
   font-size: 1.2rem;
   font-weight: bold;
-  border-left: 4px solid $red;
-  color: $red;
+  border-left: 4px solid $error;
+  color: $error;
   margin-bottom: 45px;
 }
-
-
-
-@import 'search.scss';
-@import 'results.scss';
-@import 'google-maps.scss';
-@import 'toggle.scss';

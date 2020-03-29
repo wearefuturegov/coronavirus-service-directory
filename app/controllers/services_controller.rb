@@ -1,23 +1,15 @@
 class ServicesController < ApplicationController
 
     def index
-        @categories = Category.all
-        results = Geocoder.search(params[:postcode], region: "gb")
-        if results.length > 0
-            @result = results.first.formatted_address
-            @coordinates = Geocoder.coordinates(params[:postcode])
-            if params[:categories]
-                @services = Service
-                    .where("category && ARRAY[?]::varchar[]", params[:categories])
-                    .near(results.first.coordinates, 200)
-            else
-                @services = Service
-                    .near(results.first.coordinates, 200)
-            end
-        else
-            @services = Service.all
-        end
-    end 
+
+        # byebug
+
+        locations = Geocoder.search(params[:postcode], region: "gb") if params[:postcode]
+        @services = Service.all
+        @services = @services.near(locations.first.coordinates, 200) if locations && locations.length > 0
+        
+        @services = @services.joins(:categories).where("categories.name in (?)", params[:categories]) if params[:categories]
+    end
 
     def new
         @new_service = Service.new

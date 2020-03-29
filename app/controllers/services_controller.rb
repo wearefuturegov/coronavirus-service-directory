@@ -1,16 +1,11 @@
 class ServicesController < ApplicationController
 
     def index
-
         @categories = Category.all
-        
         results = Geocoder.search(params[:postcode], region: "gb")
-
         if results.length > 0
-
             @result = results.first.formatted_address
             @coordinates = Geocoder.coordinates(params[:postcode])
-
             if params[:categories]
                 @services = Service
                     .where("category && ARRAY[?]::varchar[]", params[:categories])
@@ -23,5 +18,20 @@ class ServicesController < ApplicationController
             @services = Service.all
         end
     end 
+
+    def new
+        @new_service = Service.new
+    end
+
+    def create
+        @new_service = Service.new(service_params)
+        @new_service.save
+    end
+
+    private
+
+    def service_params
+        params.require(:service).permit(:name, :description)
+    end
 
 end

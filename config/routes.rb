@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root "services#index"
 
   # public routes
-  resources :services, only: [:index]
+  resources :services, only: [:index, :new, :create]
 
   namespace :api do
     resources :services, only: [:index, :show]

@@ -11,6 +11,7 @@ class ServiceDashboard < Administrate::BaseDashboard
     categories: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    published: Field::Boolean,
     description: Field::Text,
     url: Field::String,
     created_at: Field::DateTime,
@@ -36,6 +37,7 @@ class ServiceDashboard < Administrate::BaseDashboard
   name
   description
   url
+  published
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -44,6 +46,7 @@ class ServiceDashboard < Administrate::BaseDashboard
   name
   description
   categories
+  published
   url
   phone
   email
@@ -65,6 +68,7 @@ class ServiceDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
   categories
   name
+  published
   description
   url
   phone

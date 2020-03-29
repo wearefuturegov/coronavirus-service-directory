@@ -45,6 +45,8 @@ task :csv => :environment do
         service.key_point_3 = row[18]
         service.how_to_contact = row[19]
 
+        service.published = true
+
         service.save
     end
 end

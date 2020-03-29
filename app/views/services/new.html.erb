@@ -1,0 +1,49 @@
+<%= form_for @new_service, local: true do |f| %>
+
+    <% if @new_service.errors.any? %>
+        <ul>
+            <% @new_service.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <h2>About the organisation or group</h2>
+
+    <div class="field">
+        <%= f.label :name, class: "field__label" %>
+        <%= f.text_field :name, class: "field__input" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :description, class: "field__label" %>
+        <%= f.text_area :description, class: "field__input" %>
+    </div>
+
+    <fieldset class="checkboxes field">
+        <legend>What can you help with</legend>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :long_name) %>
+    </fieldset>
+
+    <h2>How people can contact you</h2>
+
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+
+    <h2>Where you're located</h2>
+
+    <%= f.label :postcode %>
+    <%= f.text_field :postcode %>
+
+    <h2>Your own details</h2>
+
+    <%= f.submit %>
+
+
+<% end %>

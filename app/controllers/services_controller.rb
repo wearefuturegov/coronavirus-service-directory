@@ -25,7 +25,11 @@ class ServicesController < ApplicationController
 
     def create
         @new_service = Service.new(service_params)
-        @new_service.save
+        if @new_service.save
+            render :success
+        else
+            render :new
+        end
     end
 
     private

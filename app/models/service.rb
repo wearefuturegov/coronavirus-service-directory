@@ -4,6 +4,8 @@ class Service < ApplicationRecord
   geocoded_by :postcode
   after_validation :geocode
 
+  validates :name, presence: true
+
   def rough_distance
       if distance < 1
         "Less than a mile away"

@@ -11,8 +11,6 @@ task :csv => :environment do
 
         service.name = row[0]
         service.description = row[1]
-
-        service.save
         
         if row[2] && row[2].downcase.strip == "yes"
             service.categories << Category.find_by(name: "food")
@@ -39,7 +37,7 @@ task :csv => :environment do
         service.url = row[9]
         service.phone = row[10]
         service.email = row[11]
-        # service.postcode = row[12]
+        service.postcode = row[12]
         # ...
         service.recommended = row[15]
         service.key_point_1 = row[16]

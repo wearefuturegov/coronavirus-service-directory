@@ -25,7 +25,7 @@
         <% elsif s.phone %>
             <p class="service-card__phone"><%= s.phone %> </p>
         <% elsif s.email %>
-            <a href="mailto:<%= s.email %>%" class="button">Send email <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
+            <a href="mailto:<%= s.email %>" class="button">Send email <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
         <% end %>
         <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
     </footer>

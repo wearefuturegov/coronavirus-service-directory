@@ -1,10 +1,11 @@
 require 'csv'
 
 task :csv => :environment do
-    Service.destroy_all
 
     response = HTTParty.get(ENV["DATASOURCE"])
     rows = CSV.parse(response.body, headers: true)
+
+    Service.destroy_all
 
     # byebug
 

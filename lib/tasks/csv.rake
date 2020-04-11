@@ -1,10 +1,15 @@
 require 'csv'
 
 task :csv => :environment do
-    Service.destroy_all
+
+    puts "📡 Fetching remote data source..."
 
     response = HTTParty.get(ENV["DATASOURCE"])
     rows = CSV.parse(response.body, headers: true)
+
+    puts "🙇‍ Processing and geocoding #{rows.length} rows..."
+
+    Service.destroy_all
 
     rows.drop(3).each do |row|
         service = Service.new
@@ -13,25 +18,25 @@ task :csv => :environment do
         service.description = row[1]
         
         if row[2] && row[2].downcase.strip == "yes"
-            service.categories << Category.find_by(name: "food")
+            service.categories << Category.find_or_create_by(name: "food")
         end
         if row[3] && row[3].downcase.strip == "yes"
-            service.categories << Category.find_by(name: "pets")
+            service.categories << Category.find_or_create_by(name: "pets")
         end
         if row[4] && row[4].downcase.strip == "yes"
-            service.categories << Category.find_by(name: "social")
+            service.categories << Category.find_or_create_by(name: "social")
         end
         if row[5] && row[5].downcase.strip == "yes"
-            service.categories << Category.find_by(name: "financial")
+            service.categories << Category.find_or_create_by(name: "financial")
         end
         if row[6] && row[6].downcase.strip == "yes"
-            service.categories << Category.find_by(name: "entertainment")
+            service.categories << Category.find_or_create_by(name: "entertainment")
         end
         if row[7] && row[7].downcase.strip == "yes"
-            service.categories << Category.find_by(name: "prescriptions")
+            service.categories << Category.find_or_create_by(name: "prescriptions")
         end
         if row[8] && row[8].downcase.strip == "yes"
-            service.categories << Category.find_by(name: "wellbeing")
+            service.categories << Category.find_or_create_by(name: "wellbeing")
         end
 
         service.url = row[9]
@@ -47,6 +52,12 @@ task :csv => :environment do
 
         service.published = true
 
-        service.save
+        if service.save
+            puts "Added #{service.name}"
+        else
+            puts "ERROR"
+        end
     end
+
+    puts "✅ Finished"
 end

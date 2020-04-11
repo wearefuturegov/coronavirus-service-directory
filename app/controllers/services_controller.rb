@@ -6,9 +6,9 @@ class ServicesController < ApplicationController
 
         locations = Geocoder.search(params[:postcode], region: "gb") if params[:postcode]
         @services = Service.all
+
         @services = @services.near(locations.first.coordinates, 200) if locations && locations.length > 0
-        
-        @services = @services.joins(:categories).where("categories.name in (?)", params[:categories]) if params[:categories]
+        @services = @services.joins(:categories).where("categories.name in (?)" params[:categories]) if params[:categories]
     end
 
     def new

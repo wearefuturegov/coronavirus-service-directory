@@ -17,33 +17,25 @@
     <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p>
 </div>
 
-<% if notice %><p class="error"><%= notice %></p><%end%>
+<% if notice %>
+    <p class="error"><%= notice %></p>
+<%end%>
 
-    <%= form_with url: services_path, method: :get, local: true do |f| %>
+<%= form_with url: services_path, method: :get, local: true do |f| %>
 
-        <fieldset class="field">
-            <legend class="field__label"><h2>What do you need help with?</h2></legend>
-            <p class="field__hint">Select as many as you like</p>
-            <div class="checkboxes">
+    <div class="field">
+        <%= f.label :category, "What" %>
+        <%= f.collection_select :category, Category.all, :id, :label, class: "field__label" %>
+    </div>
 
-                <% Category.all.each do |c| %>
-                    <div class="checkbox">
-                        <input class="checkbox__input" type="checkbox" name="categories[]" value="<%= c.name %>" id="<%= c.name %>" <% if params[:categories] && params[:categories].include?(c.name) %>checked<% end %>>
-                        <label class="checkbox__label" for="<%= c.name %>"><%= c.long_name %></label>
-                    </div>
-                <% end %>
+    <div class="field">
+        <%= f.label :postcode, "Where are you?", class: "field__label" %>
+        <p class="field__hint">Enter your Camden postcode</p>
+        <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "field__text-input" %>
+    </div>
 
-            </div>
-        </fieldset>
-
-        <div class="field">
-            <label  class="field__label"for="postcode"><h2>Where are you?</h2></label>
-            <p class="field__hint">Enter your Camden postcode</p>
-            <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "field__text-input" %>
-        </div>
-
-        <%= f.submit "See results", class: "button" %>
-    <% end %>
+    <%= f.submit "See results", class: "button" %>
+<% end %>
 
 
 <% if (params[:categories] && params[:categories].include?("financial")) %>

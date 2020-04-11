@@ -41,6 +41,8 @@ rails db:seed
 rails s
 ```
 
+There's a seed file that will fill the database with fake data.
+
 It will be on localhost:3000.
 
 If you're using Docker, `docker-compose up` will set up a local database for you.
@@ -73,7 +75,7 @@ It should pull in all the rows from your data sheet and geocode postcodes into l
 
 If your data schema is different, you might need to adjust the `rails csv` task a little. You can see what the task does in `lib/tasks/csv.rake`.
 
-You can use Heroku's [Scheduler](https://devcenter.heroku.com/articles/scheduler) add on to run the task regularly - for example, every hour.
+You can use Heroku's [Scheduler](https://devcenter.heroku.com/articles/scheduler) add on to run the task regularly - for example, every hour. Beware of geocoding service costs if you do this.
 
 ## Roadmap
 

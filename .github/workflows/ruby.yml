@@ -1,58 +1,37 @@
-# This code from https://dev.to/vvo/a-rails-and-postgresql-setup-for-github-actions-ci-nc8
-# and https://dev.to/jennapederson/github-actions-in-action-2c5
+name: Rails Unit Tests
 
-name: Run tests
-
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
-    
+
     services:
-      postgres:
-        image: postgres:11.6-alpine
-        env:
-          POSTGRES_PASSWORD: password
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      db:
+        image: postgres:11
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Install Ruby version specified in `.ruby-version`
-        uses: eregon/use-ruby-action@master # this will use by default the .ruby-version file in your repository
-      
-      - name: Install native postgres client
-        run: |
-          sudo apt-get -y install libpq-dev
-      
-      - name: Read Node.js version to install from `.nvmrc`
-        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
-        id: nvm
-      
-      - name: Install required Node.js version
-        uses: actions/setup-node@v1
-        with:
-          node-version: "${{ steps.nvm.outputs.NVMRC }}"
-      
-      - name: Bundle install
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-
-      - name: Yarn install
-        run: yarn --frozen-lockfile
-
-      - name: Setup database and run tests
-        env:
-          PGHOST: localhost
-          PGUSER: postgres
-          RAILS_ENV: test
-          PGPASSWORD: password
-        run: |
-          bundle exec rails db:create
-          bundle exec rails db:schema:load
-          bundle exec rspec
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6
+    - name: Build and test with Rake
+      env:
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+        RAILS_ENV: test
+      run: |
+        sudo apt-get -yqq install libpq-dev
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+        bundle exec rails test

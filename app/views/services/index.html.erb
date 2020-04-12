@@ -25,7 +25,7 @@
 
     <div class="field">
         <%= f.label :category, "What" %>
-        <%= f.collection_select :category, Category.all, :id, :label, class: "field__label" %>
+        <%= f.collection_select :category, Category.all, :name, :label, class: "field__label" %>
     </div>
 
     <div class="field">

@@ -1,30 +1,28 @@
-<li class="service-card <% if recommended %>
-    service-card--recommended
-<% end %>" data-latitude="<%= s.latitude %>" data-longitude="<%= s.longitude %>">
-    <header class="service-card__header">
-        <h2 class="service-card__name"><%= s.name %></h2>
-        <p class="service-card__description"><%= s.description %></p>
+<li class="service-card <%= "recommended" if recommended %>">
 
-    </header>
-    <ul class="service-card__key-points">
-        <% if s.key_point_1 %>
-            <li class="service-card__key-point"><%= s.key_point_1 %></li>
-        <% end %>
-        <% if s.key_point_2 %>
-            <li class="service-card__key-point"><%= s.key_point_2 %></li>
-        <% end %>
-        <% if s.key_point_3 %>
-            <li class="service-card__key-point"><%= s.key_point_3 %></li>
+    <h2 class="service-card__name">
+        <a href=""><%= s.name %></a>
+    </h2>
+    <p class="service-card__description"><%= s.description %></p>
+
+    <ul class="service-card__categories">
+        <% s.categories.each do |c| %>
+            <li class="service-card__category"><%= c.name %></li>
         <% end %>
     </ul>
+
     <footer class="service-card__footer">
-        <% if s.url %>
-            <a href="<%= s.url %>" target="blank">Visit website <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
-        <% elsif s.phone %>
+        <aside>
+            <h3>Where</h3>
+            <p><%= s.street_address %></p>
+            <p><%= s.postcode %></p>
+        </aside>
+
+        <aside>
+            <h3>Contact</h3>
+            <p><%= link_to s.email, "mailto:#{s.email}"%></p>
             <p class="service-card__phone"><%= s.phone %> </p>
-        <% elsif s.email %>
-            <a href="mailto:<%= s.email %>%">Send email <%= image_tag "forward.svg", alt: "", class: "button__icon" %></a>
-        <% end %>
-        <small class="service-card__contact-prompt"><%= s.how_to_contact %></small>
+        </aside>
     </footer>
+
 </li>

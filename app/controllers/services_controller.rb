@@ -2,10 +2,9 @@ class ServicesController < ApplicationController
 
     def index
         locations = Geocoder.search(params[:postcode], region: "gb") if params[:postcode]
-        
         @services = Service.all.page(params[:page])
         @services = @services.near(locations.first.coordinates, 200) if locations && locations.length > 0
-        @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) if params[:category]
+        @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) if params[:category].length > 0
     end
 
     def new

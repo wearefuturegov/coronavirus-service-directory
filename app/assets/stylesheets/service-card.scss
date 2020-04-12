@@ -28,9 +28,11 @@
   
     .service-card__footer{
       border-top: 1px solid transparentize($grey, 0.9);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-column-gap: 25px;
+      @media screen and (min-width: 350px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 25px;
+      }
       font-size: 0.9rem;
     }
     .service-card__subsection-title{

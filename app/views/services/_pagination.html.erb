@@ -1,0 +1,14 @@
+<nav class="pagination">
+    <% if previous_page_url(model) %>
+        <%= link_to "Previous page",
+            path_to_previous_page(model), 
+            class: "pagination__previous" 
+        %>
+    <% end %>
+    <% if next_page_url(model) %>
+        <%= link_to "Next page", 
+            path_to_next_page(model), 
+            class: "pagination__next" 
+        %>
+    <% end %>
+</nav>

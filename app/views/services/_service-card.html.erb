@@ -7,7 +7,7 @@
     <% if s[:distance] %>
         <p class="service-card__distance"><%= s.rough_distance %></p%>
     <% end %>
-    <p class="service-card__description"><%= s.description %></p>
+    <p class="service-card__description"><%= s.description.truncate(160, separator: " ") %></p>
 
     <ul class="service-card__categories">
         <% s.categories.each do |c| %>

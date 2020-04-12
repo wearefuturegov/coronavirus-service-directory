@@ -33,3 +33,12 @@ h1, h2, h3, h4, h5{
         color: $text;
     }
 }
+
+*::-moz-focus-inner,
+button::-moz-focus-inner,
+select::-moz-focus-inner,
+*::-moz-focusring,
+*::-moz-focus-outer{
+  outline: none;
+  border: 0px;
+}

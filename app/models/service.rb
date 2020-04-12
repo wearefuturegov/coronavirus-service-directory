@@ -6,6 +6,8 @@ class Service < ApplicationRecord
 
   validates :name, presence: true
 
+  paginates_per 12
+
   def rough_distance
       if distance < 1
         "Less than a mile away"

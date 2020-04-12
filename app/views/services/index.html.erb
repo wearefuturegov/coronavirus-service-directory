@@ -11,10 +11,8 @@
         </li>
     </ul>
     <h1 class="page-title">Get help if you’re staying at home because of coronavirus</h1>
-
     <p class="lede">Use this service to find volunteer groups and other services in your local area who can help you cope.</p>
-
-    <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p>
+    <%# <p class="important">If you're worried about your health or have coronavirus symptoms, call NHS 111 or <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/">check the NHS website</a>.</p> %>
 </div>
 
 <% if notice %>
@@ -23,6 +21,10 @@
 
 <%= render "search-form" %>
 
+<header class="grid-actions">
+    <h2>All services</h2>
+    <%# Map toggle here %>
+</header>
 
 <% if (params[:categories] && params[:categories].include?("financial")) %>
     <section class="important">
@@ -31,25 +33,23 @@
     </section>
 <% end %>
 
-<ol class="service-results">
+<ol class="services-grid">
     <% @services.each do |s| %>
-    
-        <li>
-            <strong><%= s.name %></strong>
-            <small><% s.categories.each do |c| %>
-            <%= c.name %>
-            <% end %></small>
-        </li>
-
+        <%= render "service-card", s: s %>
     <% end %>
 </ol>
 
 <%= paginate @services %>
 
-<section class="safeguarding">
-    <h2>Can't find what you need?</h2>
-    <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/COVID-19">see our other coronavirus resources</a>.</p>
-    <p>If you represent a group or service that’s offering help during the coronavirus pandemic, <%= link_to "tell us about it", new_service_path %>.</a>
+<section class="calls-to-action">
+    <aside class="calls-to-action__call">
+        <h2>Can't find what you need?</h2>
+        <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/COVID-19">see our other coronavirus resources</a>.</p>
+    </aside>
+    <aside class="calls-to-action__call">
+        <h2>Tell us about a service</h2>
+        <p>If you represent a group or service that’s offering help during the coronavirus pandemic, <%= link_to "tell us about it", new_service_path %>.</a>
+    </aside>
 </section>
 
 <%= javascript_pack_tag 'application' %>

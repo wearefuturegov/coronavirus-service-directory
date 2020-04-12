@@ -1,0 +1,31 @@
+<li class="service-card <%= "recommended" if s.recommended %>">
+
+    <h2 class="service-card__name">
+        <a href=""><%= s.name %></a>
+    </h2>
+
+    <% if s[:distance] %>
+        <p class="service-card__distance"><%= s.rough_distance %></p%>
+    <% end %>
+    <p class="service-card__description"><%= s.description %></p>
+
+    <ul class="service-card__categories">
+        <% s.categories.each do |c| %>
+            <li class="service-card__category"><%= c.name.humanize %></li>
+        <% end %>
+    </ul>
+
+    <footer class="service-card__footer">
+        <aside class="service-card__subsection">
+            <h3 class="service-card__subsection-title">Where</h3>
+            <p><%= s.street_address %></p>
+            <p><%= s.postcode %></p>
+        </aside>
+
+        <aside class="service-card__subsection">
+            <h3 class="service-card__subsection-title">Contact</h3>
+            <p class="service-card__email"><%= link_to s.email, "mailto:#{s.email}"%></p>
+            <p class="service-card__phone"><%= s.phone %> </p>
+        </aside>
+    </footer>
+</li>

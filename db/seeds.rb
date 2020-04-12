@@ -1,3 +1,5 @@
+puts "⏰ Deleting existing data..."
+
 Category.destroy_all
 Service.destroy_all
 
@@ -32,7 +34,9 @@ Category.create([
     }
 ])
 
-25.times do
+puts "✅ Created #{Category.all.count} mock categories"
+
+75.times do
     Service.create(
         name: FFaker::Company.name,
         description: FFaker::Lorem.paragraph,
@@ -56,3 +60,5 @@ Category.create([
         categories: [ Category.order("RANDOM()").first ]
     )
 end
+
+puts "✅ Created #{Service.all.count} mock categories"

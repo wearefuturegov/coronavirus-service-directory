@@ -1,0 +1,49 @@
+@import "_variables.scss";
+
+.service-card{
+    background: $white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    border: 1px solid transparentize($grey, 0.9);
+  
+    .service-card__name{
+      margin-bottom: 10px;
+    }
+    .service-card__description{
+      margin-bottom: 15px;
+    }
+  
+    .service-card__categories{
+      list-style: none;
+      margin-bottom: 25px;
+    }
+    .service-card__category{
+      display: inline-block;
+      font-size: 0.9rem;
+      border: 1px solid $text;
+      padding: 3px 5px;
+      border-radius: 3px;
+    }
+  
+    .service-card__footer{
+      border-top: 1px solid transparentize($grey, 0.9);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 25px;
+      font-size: 0.9rem;
+    }
+    .service-card__subsection-title{
+      margin-top: 25px;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    .service-card__email{
+      word-wrap: anywhere;
+    }
+
+    .service-card__distance{
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+  }

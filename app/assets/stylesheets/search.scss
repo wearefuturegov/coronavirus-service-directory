@@ -1,0 +1,88 @@
+@import "variables";
+
+.search{
+    margin-bottom: 55px;
+    @media screen and (min-width: $breakpoint){
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+.field{
+    margin-bottom: 25px;
+    @media screen and (min-width: $breakpoint){
+        margin-bottom: 0px;
+        margin-right: 25px;
+        flex: 1;
+    }
+    .field__label{
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 7px;
+    }
+    .field__input{
+        font-size: 1.3rem;
+        padding: 13px;
+        border: 2px solid $text;
+        width: 100%;
+        &::placeholder{
+          color: transparentize($text, 0.5);
+        }
+        &:focus{
+          outline: 3px solid $focus;
+        }
+    }
+    .field__select{
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        font-size: 1.3rem;
+        padding: 13px;
+        border: 2px solid $text;
+        width: 100%;
+        background-size: 35px;
+        background-image: url(asset_path("select-icon.svg"));
+        background-position: center right;
+        background-repeat: no-repeat;
+        padding-right: 50px;
+        &:focus{
+          outline: 3px solid $focus;
+        }
+    }
+}
+
+.button{
+    background: $link;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    color: $white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 4px 0px darken($link, 20);
+    &:hover{
+      background: darken($link, 10);
+    }
+    &:active{
+      transform: translateY(4px);
+      background: darken($link, 20);
+      box-shadow: none;
+    }
+    &:focus{
+      outline: none;
+      box-shadow: 0px 0px 0px 3px $focus;
+    }
+    @media screen and (min-width: $breakpoint){
+      max-width: 200px;
+      font-size: 1.2rem
+    }
+  }

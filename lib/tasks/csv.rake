@@ -9,6 +9,7 @@ task :csv => :environment do
 
     puts "🙇‍ Processing and geocoding #{rows.length} rows..."
 
+    Category.destroy_all
     Service.destroy_all
 
     rows.drop(3).each do |row|

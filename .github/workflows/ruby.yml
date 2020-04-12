@@ -29,6 +29,7 @@ jobs:
       env:
         PGHOST: 127.0.0.1
         PGUSER: postgres
+        PGPASSWORD: password
         RAILS_ENV: test
       run: |
         sudo apt-get -yqq install libpq-dev

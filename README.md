@@ -1,5 +1,7 @@
 # Coronavirus response service directory
 
+![Rails Unit Tests](https://github.com/wearefuturegov/coronavirus-service-directory/workflows/Rails%20Unit%20Tests/badge.svg)
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](
 https://heroku.com/deploy)
 

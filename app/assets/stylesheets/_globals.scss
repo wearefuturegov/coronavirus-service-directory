@@ -1,0 +1,35 @@
+@import "variables";
+
+*{
+    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: $text;
+}
+
+body{
+  background: $pale;
+}
+
+h1, h2, h3, h4, h5{
+    line-height: 1;
+  }
+  
+  p{
+    line-height: 1.5;
+  }
+  
+  a{
+    color: $link;
+    &:hover{
+      text-decoration: none;
+    }
+    &:focus{
+      background: $focus;
+      outline: 1px solid $focus;
+    }
+    &:active{
+        color: $text;
+    }
+}

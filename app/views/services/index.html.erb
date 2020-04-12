@@ -21,21 +21,7 @@
     <p class="error"><%= notice %></p>
 <%end%>
 
-<%= form_with url: services_path, method: :get, local: true do |f| %>
-
-    <div class="field">
-        <%= f.label :category, "What" %>
-        <%= f.collection_select :category, Category.all, :name, :label, class: "field__label" %>
-    </div>
-
-    <div class="field">
-        <%= f.label :postcode, "Where are you?", class: "field__label" %>
-        <p class="field__hint">Enter your Camden postcode</p>
-        <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "field__text-input" %>
-    </div>
-
-    <%= f.submit "See results", class: "button" %>
-<% end %>
+<%= render "search-form" %>
 
 
 <% if (params[:categories] && params[:categories].include?("financial")) %>

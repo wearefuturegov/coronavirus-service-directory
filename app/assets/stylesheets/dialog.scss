@@ -8,7 +8,6 @@
         z-index: 2;
     }
 
-
     .dialog__backdrop{
         position: fixed;
         top: 0px;
@@ -17,16 +16,113 @@
         height: 100%;
         background: transparentize($text, 0.25);
         padding: 0px 20px;
+        overflow-y: scroll;
     }
 
     .dialog__inner{
+        position: relative;
         max-width: 600px;
         width: 100%;
         margin: 40px auto;
         background: $white;
+        border-radius: 5px;
         box-shadow: 0px 2px 20px transparentize($text, 0.75);
         @media screen and (min-width: $breakpoint){
             margin: 80px auto;
         }
+    }
+
+    .dialog__close{
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background: none;
+        border: none;
+        padding: 5px;
+        &:focus{
+            background: $focus;
+        }
+    }
+    .dialog__close-icon{
+        display: block;
+    }
+
+    // .dialog__content{
+    // }
+
+    .dialog__header{
+        padding: 35px;
+        .button{
+            margin-bottom: 0px;
+        }
+    }
+
+    .dialog__name{   
+        font-size: 2rem;
+        margin-bottom: 25px;
+    } 
+
+    .dialog__description{
+        margin-bottom: 25px;
+    }
+
+    .dialog__key-points{
+        background: $pale;
+        padding: 35px;
+        list-style: none;
+    }
+
+    .dialog__key-point{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        &:last-of-type{
+            margin-bottom: 0px;
+        }
+        &:before{
+            content: "";
+            width: 20px;
+            height: 20px;
+            margin-right: 20px;
+            background-image: url(asset_path("green-tick.svg"));
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    .dialog__footer{
+        padding: 35px;
+        @media screen and (min-width: 350px){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 25px;
+        }
+    }
+
+    .dialog__subsection{
+        flex: 1;
+        word-wrap: anywhere;
+        &:first-of-type{
+            margin-bottom: 25px;
+            @media screen and (min-width: 350px){
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .dialog__subsection-title{
+        margin-bottom: 10px;
+    }
+
+    .dialog__map-link:focus{
+        outline: none;
+        background: none;
+    }
+
+    .dialog__map{
+        width: 100%;
     }
 }

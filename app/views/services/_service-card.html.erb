@@ -1,6 +1,6 @@
-<li class="service-card <%= "service-card--recommended" if s.recommended %>">
+<li class="service-card<%= " service-card--recommended" if s.recommended %>">
 
-    <button data-micromodal-trigger="details-dialog" class="service-card__button">
+    <button class="service-card__button" data-service-id="<%= s.id %>">
         <h2 class="service-card__name"><%= s.name %></h2>
     </button>
 

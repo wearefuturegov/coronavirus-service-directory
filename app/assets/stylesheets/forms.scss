@@ -40,17 +40,21 @@
     border-radius: 5px;
     box-shadow: 0px 4px 0px darken($link, 20);
     margin-bottom: 25px;
+    &:focus{
+      outline: none;
+      background: $link;
+      box-shadow: 0px 0px 0px 3px $focus;
+      color: $white;
+    }
     &:hover{
       background: darken($link, 10);
+      color: $white;
     }
     &:active{
       transform: translateY(4px);
       background: darken($link, 20);
       box-shadow: none;
-    }
-    &:focus{
-      outline: none;
-      box-shadow: 0px 0px 0px 3px $focus;
+      color: $white;
     }
     @media screen and (min-width: $breakpoint){
       max-width: 200px;

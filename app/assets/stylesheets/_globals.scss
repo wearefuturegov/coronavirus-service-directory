@@ -40,7 +40,11 @@ select::-moz-focus-inner,
 *::-moz-focusring,
 *::-moz-focus-outer{
   outline: none;
-  border: 0px;
+  border: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
 }
 
 .visually-hidden{

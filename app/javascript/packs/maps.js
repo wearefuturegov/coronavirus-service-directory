@@ -1,4 +1,6 @@
 import {Loader, LoaderOptions} from "google-maps"
+import {openDialog} from "./dialog"
+import icon from "../../assets/images/marker.png"
 
 const toggle = document.querySelector(".map-toggle input")
 const mapHolder = document.querySelector(".map-holder")
@@ -40,15 +42,15 @@ const createMap = async () => {
     })
     bounds = new google.maps.LatLngBounds()
 
+
     services.map(service => {
         let {latitude, longitude} = service
         let marker = new google.maps.Marker({
           position: new google.maps.LatLng(latitude,longitude),
-          map: map
+          map: map,
+        //   icon: icon
         })
         bounds.extend(marker.position)
-        marker.addListener("click", function() {
-            // TODO: add detail dialog opening logic here
-        })
+        marker.addListener("click", () => openDialog(service))
     }) 
 }

@@ -2,47 +2,49 @@
     <div class="two-thirds">
         <ul class="breadcrumbs">
             <li class="breadcrumbs__crumb">
-                <a href="https://www.camden.gov.uk/" lass="breadcrumbs__link">Home</a>
+                <a href="https://www.camden.gov.uk/" class="breadcrumbs__link">Home</a>
             </li>
             <li class="breadcrumbs__crumb">
-                <a href="https://www.camden.gov.uk/COVID-19" lass="breadcrumbs__link">Coronavirus</a>
+                <a href="https://www.camden.gov.uk/COVID-19" class="breadcrumbs__link">Coronavirus</a>
             </li>
-            <li class="breadcrumbs__crumb">Get self-isolation help</li>
-        </ul>
-        <% if params[:page].blank? || params[:postcode].blank? || params[:category].blank? %>
+            <% if is_initial? %>    
+                <li class="breadcrumbs__crumb">Get self-isolation help</li>
+            <% else %>
+                <li class="breadcrumbs__crumb">
+                    <%= link_to "Get self-isolation help", root_path %>
+                </li>    
+                <li class="breadcrumbs__crumb">Results</li>
+            <% end %>
+        </ul>        
+        <% if is_initial? %>    
             <h1 class="page-title">Get help if you’re staying at home because of coronavirus</h1>
             <p class="lede">Use this service to find volunteer groups and other services in your local area who can help you cope.</p>
+        <% else %>
+            <h1 class="page-title">Your results</h1>
         <% end %>
     </div>
 <% end %>
 
 <%= render "search-form" %>
 
-<header class="grid-actions">
-    <p class="search-summary">
-        <% unless params[:postcode].blank? %>
-            Results nearest <strong><%= params[:postcode].upcase %></strong>
-        <% else %>
-            All results in the Camden area
+<% if @services.present? %>
+    <header class="grid-actions">
+        <%# Map toggle here %>
+        <% if @locations.present? %>
+            <p>Results near <strong><%= location_summary(@locations) %></strong>
         <% end %>
-    </p>
-    <%# Map toggle here %>
-</header>
+    </header>
 
-<% if (params[:categories] && params[:categories].include?("financial")) %>
-    <section class="important">
-        <p>If your income has stopped or dropped as a result of coronavirus, you might be able to get financial support.</p>
-        <a class="important__link" href="https://www.camden.gov.uk/COVID-19">Details and how to apply</a>
-    </section>
+    <%= render "advice-snippets" %>
+
+    <ol class="services-grid">
+        <% @services.each do |s| %>
+            <%= render "service-card", s: s %>
+        <% end %>
+    </ol>
+
+    <%= render "pagination", model: @services %>
 <% end %>
-
-<ol class="services-grid">
-    <% @services.each do |s| %>
-        <%= render "service-card", s: s %>
-    <% end %>
-</ol>
-
-<%= render "pagination", model: @services %>
 
 <% content_for :after_content do %>
     <section class="calls-to-action">
@@ -58,5 +60,3 @@
         </div>
     </section>
 <% end %>
-
-<%= javascript_pack_tag 'application' %>

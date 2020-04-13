@@ -1,11 +1,12 @@
 class ServicesController < ApplicationController
 
     def index
-        locations = Geocoder.search(params[:postcode], region: "gb") if params[:postcode]
         @services = Service.all.page(params[:page])
-        @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) unless params[:category].blank?
-        if locations && locations.length > 0
-            @services = @services.near(locations.first.coordinates, 200) 
+        @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) if params[:category].present?
+        if params[:postcode].present?
+            @locations = Geocoder.search(params[:postcode], region: "gb")
+            @services = @services.near(@locations.first.coordinates, 200) if @locations.present?
+            flash[:alert] = "Couldn't find any services near that location. Is it a valid postcode or area in Camden?" if @services.empty? || @locations.blank?
         end
     end
 

@@ -1,4 +1,4 @@
-<%= form_with url: services_path, method: :get, local: true, class: "search" do |f| %>
+<%= form_with url: root_path, method: :get, local: true, class: "search" do |f| %>
 
     <div class="search__field">
         <%= f.label :category, "What kind of help?", class: "search__label" %>
@@ -15,5 +15,5 @@
         <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "search__input" %>
     </div>
 
-    <%= f.submit "Search", class: "button button--search" %>
+    <%= f.submit (@initial ? "Search" : "Search again"), class: "button button--search" %>
 <% end %>

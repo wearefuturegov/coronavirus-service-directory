@@ -1,0 +1,45 @@
+// [data-a11y-dialog-native] .dialog-overlay {
+//     display: none;
+//   }
+  
+//   /**
+//    * When `<dialog>` is not supported, its default display is `inline` which can
+//    * cause layout issues.
+//    */
+//   dialog[open] {
+//     display: block;
+//   }
+  
+//   .dialog[aria-hidden="true"] {
+//     display: none;
+//   }
+  
+//   /* -------------------------------------------------------------------------- *\
+//    * Styling to make the dialog look like a dialog
+//    * -------------------------------------------------------------------------- */
+  
+//   .dialog-overlay {
+//     z-index: 2;
+//     background-color: rgba(0, 0, 0, 0.66);
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//   }
+  
+//   dialog::backdrop {
+//     background-color: rgba(0, 0, 0, 0.66);
+//   }
+  
+//   .dialog-content {
+//     background-color: rgb(255, 255, 255);
+//     z-index: 3;
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     -webkit-transform: translate(-50%, -50%);
+//     -ms-transform: translate(-50%, -50%);
+//     transform: translate(-50%, -50%);
+//     margin: 0;
+//   }

@@ -22,6 +22,7 @@ group :development, :test do
   gem 'ffaker'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'rack-mini-profiler'
 end
 
 group :development do

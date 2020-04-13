@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "4.2.2",
+    "a11y-dialog": "^5.3.1",
     "dotenv": "^8.2.0",
     "google-maps": "^4.2.3"
   },

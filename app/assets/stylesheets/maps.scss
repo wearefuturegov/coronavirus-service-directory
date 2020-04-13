@@ -12,6 +12,10 @@
 .map-toggle{
     margin-left: auto;
     display: inline-block;
+    margin-top: 10px;
+    @media screen and (min-width: $breakpoint){
+        margin-top: 0px;
+    }
     &:focus-within .map-toggle__label:after{
         box-shadow: 0px 0px 0px 3px $focus;
     }

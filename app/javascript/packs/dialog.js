@@ -29,13 +29,11 @@ export const openDialog = data => {
             <p class="dialog__description">${data.description}</p>
             <a href="${data.url}" class="button">Visit website</a>
         </header>
-        
         <ul class="dialog__key-points">
             ${data.key_point_1 && `<li class="dialog__key-point">${data.key_point_1}</li>`} 
             ${data.key_point_2 && `<li class="dialog__key-point">${data.key_point_2}</li>`} 
             ${data.key_point_3 && `<li class="dialog__key-point">${data.key_point_3}</li>`} 
         </ul>
-
         <footer class="dialog__footer">
             <aside class="dialog__subsection">
                 <h3 class="dialog__subsection-title">Where</h3>

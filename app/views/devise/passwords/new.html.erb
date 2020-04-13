@@ -1,18 +1,15 @@
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
+<% content_for :header do %>
+  <%= link_to "Go back", new_user_session_path, class: "go-back" %>
+  <h1 class="page-title">Forgotten password.</h1>
+  <p class="lede">You can reset your password by email.</p>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+  <div class="field half">
+    <%= f.label :email, class: "field__label" %>
+    <%= f.email_field :email, required: true, class: "field__input" %>
+  </div>
+
+    <%= f.button "Request reset", class: "button" %>
+<% end %>

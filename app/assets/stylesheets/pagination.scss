@@ -1,0 +1,49 @@
+
+.pagination{
+    margin-top: -40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    .pagination__previous,
+    .pagination__next{
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-decoration: none;
+      &:hover{
+          text-decoration: underline;
+      }
+    }
+
+    .pagination__previous{
+      &:before{
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 16px;
+        margin-right: 10px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(asset_path("previous.svg"));
+      }
+    }
+
+    .pagination__next{
+      &:after{
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 16px;
+        margin-left: 10px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(asset_path("next.svg"));
+      }
+    }
+  }

@@ -1,19 +1,19 @@
 <%= form_with url: services_path, method: :get, local: true, class: "search" do |f| %>
 
-    <div class="field">
-        <%= f.label :category, "What kind of help?", class: "field__label" %>
+    <div class="search__field">
+        <%= f.label :category, "What kind of help?", class: "search__label" %>
         <%= f.collection_select :category, 
         Category.all, 
         :name, :label, {
             include_blank: "Everything",
             selected: params[:category]
-        }, class: "field__select" %>
+        }, class: "search__select" %>
     </div>
 
-    <div class="field">
-        <%= f.label :postcode, "Enter your Camden postcode", class: "field__label" %>
-        <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "field__input" %>
+    <div class="search__field">
+        <%= f.label :postcode, "Enter your Camden postcode", class: "search__label" %>
+        <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "search__input" %>
     </div>
 
-    <%= f.submit "See results", class: "button" %>
+    <%= f.submit "Search", class: "button button--search" %>
 <% end %>

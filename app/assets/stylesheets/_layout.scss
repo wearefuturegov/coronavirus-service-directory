@@ -29,7 +29,13 @@
   padding: 45px 15px;
   background: $pale;
   @media screen and (min-width: $breakpoint){
-    padding: 60px 15px 80px 15px;
+    padding: 60px 15px 60px 15px;
+  }
+}
+
+.half{
+  @media screen and (min-width: $breakpoint){
+    max-width: 50%;
   }
 }
 
@@ -56,16 +62,22 @@
   }
 }
 
-.important{
+.notice{
   padding: 25px;
   background: transparentize($link, 0.9);
-  border-left: 4px solid $link;
-  margin-bottom: 45px;
-  .important__link{
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
-  }
+  border-left: 5px solid $link;
+  margin-bottom: 25px;
+}
+
+.alert{
+  padding: 25px;
+  background: transparentize($focus, 0.9);
+  border-left: 5px solid $focus;
+  margin-bottom: 25px;
+}
+
+.page-header{
+  margin-bottom: 55px;
 }
 
 .breadcrumbs{
@@ -85,6 +97,18 @@
     }
   }
 }
+.page-title{
+  font-size: 2rem;
+  @media screen and (min-width: $breakpoint){
+    font-size: 3rem;
+  }
+}
+
+.lede{
+  margin-top: 25px;
+  font-size: 1.2rem;
+}
+
 
 .beta-banner{
   background: $pale;
@@ -126,29 +150,27 @@
   }
 }
 
-.page-title{
-  font-size: 2rem;
-  margin-bottom: 55px;
-  @media screen and (min-width: $breakpoint){
-    font-size: 3rem;
-  }
-}
-
-.lede{
-  margin-top: -30px;
-  font-size: 1.2rem;
-  margin-bottom: 55px;
-}
-
 .grid-actions{
   margin-bottom: 15px;
 }
 
 .calls-to-action{
+  background: $white;
+  padding: 50px 15px;
   @media screen and (min-width: $breakpoint){
-    display: flex;
-    flex-direction: row;
-    .calls-to-action__call:first-of-type{
+    padding: 80px 15px;
+  }
+
+  .calls-to-action__inner{
+    @media screen and (min-width: $breakpoint){
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .calls-to-action__call:first-of-type{
+    margin-bottom: 50px;
+    @media screen and (min-width: $breakpoint){
+      margin-bottom: 0px;
       margin-right: 35px;
       padding-right: 35px;
       border-right: 1px solid transparentize($text, 0.5);
@@ -160,20 +182,5 @@
   }
   .calls-to-action__call{
     font-size: 1.1rem;
-  }
-}
-
-.pagination{
-  margin-top: -40px;
-  margin-bottom: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  .pagination__previous,
-  .pagination__next{
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: 10px;
   }
 }

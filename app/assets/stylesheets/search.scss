@@ -7,23 +7,24 @@
         flex-direction: row;
         align-items: flex-end;
     }
-}
 
-.field{
-    margin-bottom: 25px;
-    @media screen and (min-width: $breakpoint){
-        margin-bottom: 0px;
-        margin-right: 25px;
-        flex: 1;
+    .search__field{
+      margin-bottom: 25px;
+      @media screen and (min-width: $breakpoint){
+          margin-bottom: 0px;
+          margin-right: 25px;
+          flex: 1;
+      }
     }
-    .field__label{
+
+    .search__label{
         display: block;
         font-size: 1rem;
         margin-bottom: 7px;
     }
-    .field__input{
+    .search__input{
         font-size: 1.3rem;
-        padding: 13px;
+        padding: 14px;
         border: 2px solid $text;
         width: 100%;
         &::placeholder{
@@ -33,7 +34,7 @@
           outline: 3px solid $focus;
         }
     }
-    .field__select{
+    .search__select{
         appearance: none;
         -moz-appearance: none;
         -webkit-appearance: none;
@@ -50,40 +51,7 @@
           outline: 3px solid $focus;
         }
     }
-}
 
-.button{
-    background: $link;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-align: center;
-    color: $white;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0px 4px 0px darken($link, 20);
-    margin-bottom: 2px;
-    &:hover{
-      background: darken($link, 10);
-    }
-    &:active{
-      transform: translateY(4px);
-      background: darken($link, 20);
-      box-shadow: none;
-    }
-    &:focus{
-      outline: none;
-      box-shadow: 0px 0px 0px 3px $focus;
-    }
-    @media screen and (min-width: $breakpoint){
-      max-width: 200px;
-      font-size: 1.2rem
-    }
-  }
+
+
+}

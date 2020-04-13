@@ -42,6 +42,8 @@
         cursor: pointer;
         padding: 13px;
         border: 2px solid $text;
+        background: $white;
+        border-radius: 0px;
         width: 100%;
         background-size: 35px;
         background-image: url(asset_path("select-icon.svg"));

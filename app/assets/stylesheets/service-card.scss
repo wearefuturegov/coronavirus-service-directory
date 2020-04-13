@@ -5,6 +5,7 @@
     padding: 25px;
     margin-bottom: 25px;
     border-radius: 5px;
+    position: relative;
     border: 1px solid transparentize($grey, 0.9);
 
     &.service-card--recommended{
@@ -26,8 +27,34 @@
         font-weight: bold;
       }
     }
+
+    .service-card__button{
+      background: none;
+      border: none;
+      cursor: pointer;
+      &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+      }
+      &:focus{
+        outline: none;
+        &:after{
+          box-shadow: 0px 0px 0px 3px $focus;
+        }
+      }
+      &:hover .service-card__name{
+        text-decoration: underline;
+      }
+    }
   
     .service-card__name{
+      font-size: 1.5rem;
+      color: $link;
       margin-bottom: 10px;
     }
     .service-card__description{
@@ -61,7 +88,9 @@
       margin-bottom: 5px;
     }
     .service-card__email{
+      position: relative;
       word-wrap: anywhere;
+      z-index: 2;
     }
 
     .service-card__distance{

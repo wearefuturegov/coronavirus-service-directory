@@ -1,9 +1,8 @@
 <li class="service-card <%= "service-card--recommended" if s.recommended %>">
 
-
-    <h2 class="service-card__name">
-        <a href=""><%= s.name %></a>
-    </h2>
+    <button data-micromodal-trigger="details-dialog" class="service-card__button">
+        <h2 class="service-card__name"><%= s.name %></h2>
+    </button>
 
     <% if s[:distance] %>
         <p class="service-card__distance"><%= s.rough_distance %></p%>

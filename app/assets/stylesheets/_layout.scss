@@ -29,7 +29,7 @@
   padding: 45px 15px;
   background: $pale;
   @media screen and (min-width: $breakpoint){
-    padding: 60px 15px 60px 15px;
+    padding: 60px 15px;
   }
 }
 
@@ -82,13 +82,13 @@
 }
 
 .page-header{
-  margin-bottom: 55px;
+  padding: 15px;
 }
 
 .breadcrumbs{
   list-style: none;
-  margin-bottom: 15px;
   .breadcrumbs__crumb{
+    font-size: 0.9rem;
     display: inline-block;
     &:after{
       display: inline-block;
@@ -103,10 +103,20 @@
   }
 }
 .page-title{
+  margin-top: 55px;
   font-size: 2rem;
   @media screen and (min-width: $breakpoint){
     font-size: 3rem;
   }
+  &.page-title--small{
+    @media screen and (min-width: $breakpoint){
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.go-back{
+  font-size: 0.9rem;
 }
 
 .lede{
@@ -116,8 +126,8 @@
 
 
 .beta-banner{
-  background: $pale;
-  padding: 10px 15px 0px 15px;
+  background: $focus;
+  padding: 10px 15px;
   font-size: 0.9rem;
   .beta-banner__inner{
     display: flex;
@@ -125,14 +135,21 @@
     align-items: flex-start;
   }
   .beta-banner__tag{
-    background: $focus;
+    background: $text;
     text-transform: uppercase;
     padding: 3px 7px;
     margin-right: 10px;
-    color: $text;
+    color: $focus;
   }
   .beta-banner__message{
     padding-top: 1px;
+  }
+  a{
+    color: $text;
+    &:focus{
+      color: $focus;
+      background: $text;
+    }
   }
 }
 
@@ -152,8 +169,10 @@
 .calls-to-action{
   background: $white;
   padding: 50px 35px;
+  text-align: center;
   @media screen and (min-width: $breakpoint){
     padding: 80px 15px;
+    text-align: left;
   }
 
   .calls-to-action__inner{

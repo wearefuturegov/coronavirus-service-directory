@@ -15,5 +15,5 @@
         <%= f.text_field :postcode, value: params[:postcode], placeholder: "eg. N1C 4AG", class: "search__input" %>
     </div>
 
-    <%= f.submit (@initial ? "Search" : "Search again"), class: "button button--search" %>
+    <%= f.submit (is_initial? ? "Search" : "Search again"), class: "button button--search" %>
 <% end %>

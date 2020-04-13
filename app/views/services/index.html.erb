@@ -20,7 +20,7 @@
             <h1 class="page-title">Get help if you’re staying at home because of coronavirus</h1>
             <p class="lede">Use this service to find volunteer groups and other services in your local area who can help you cope.</p>
         <% else %>
-            <h1 class="page-title">Your results</h1>
+            <h1 class="page-title page-title--small">Your results</h1>
         <% end %>
     </div>
 <% end %>
@@ -28,14 +28,14 @@
 <%= render "search-form" %>
 
 <% if @services.present? %>
+    <%= render "advice-snippets" %>
+
     <header class="grid-actions">
         <%# Map toggle here %>
         <% if @locations.present? %>
             <p>Results near <strong><%= location_summary(@locations) %></strong>
         <% end %>
     </header>
-
-    <%= render "advice-snippets" %>
 
     <ol class="services-grid">
         <% @services.each do |s| %>

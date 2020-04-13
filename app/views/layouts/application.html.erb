@@ -20,12 +20,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
-
     <noscript><div class="noscript">You can still use this service without JavaScript, but some features might not work.</div></noscript>
 
-    <%# <div id="main">
-    <button type="button" data-a11y-dialog-show="my-accessible-dialog">Open the dialog</button> %>
+      <section class="beta-banner">
+        <div class="beta-banner__inner container">
+          <strong class="beta-banner__tag">Beta</strong>
+          <p class="beta-banner__message">We're updating this website every day — <a href="https://forms.gle/KccDGFHTpbcGLGob7">your feedback</a> helps us improve it.</p>
+        </div>
+      </section>
 
       <header class="site-header">
         <div class="container">
@@ -35,19 +37,14 @@
         </div>
       </header>
 
-      <section class="beta-banner">
-        <div class="beta-banner__inner container">
-          <strong class="beta-banner__tag">Beta</strong>
-          <p class="beta-banner__message">We're updating this website every day — <a href="https://forms.gle/KccDGFHTpbcGLGob7">your feedback</a> helps us improve it.</p>
+      <header class="page-header">
+        <div class="container">
+          <%= yield :header %>
         </div>
-      </section>
+      </header>
 
       <div class="main-content-area">
         <div class="container">
-          <header class="page-header">
-            <%= yield :header %>
-          </header>
-
           <% if notice %><p class="notice"><%= notice %></p><% end %>
           <% if alert %><p class="alert"><%= alert %></p><% end %>
 

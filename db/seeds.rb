@@ -54,11 +54,11 @@ puts "✅ Created #{Category.all.count} mock categories"
 
         how_to_contact: FFaker::Lorem.phrase,
 
-        recommended: FFaker::Boolean.maybe,
+        recommended: [false, false, false, false, false, true].sample,
         
         published: true,
         categories: [ Category.order("RANDOM()").first ]
     )
 end
 
-puts "✅ Created #{Service.all.count} mock categories"
+puts "✅ Created #{Service.all.count} mock services"

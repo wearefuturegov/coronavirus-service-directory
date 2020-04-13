@@ -31,11 +31,17 @@
     <%= render "advice-snippets" %>
 
     <header class="grid-actions">
-        <%# Map toggle here %>
         <% if @locations.present? %>
-            <p>Results near <strong><%= location_summary(@locations) %></strong>
+            <p>Results near <strong><%= location_summary(@locations) %></strong></p>
         <% end %>
+
+        <div class="map-toggle">
+            <input type="checkbox" id="map-toggle" class="map-toggle__input visually-hidden" aria-expanded="false">
+            <label for="map-toggle" class="map-toggle__label">Show map?</label>
+        </div>
     </header>
+
+    <div class="map-holder" hidden></div>
 
     <ol class="services-grid">
         <% @services.each do |s| %>

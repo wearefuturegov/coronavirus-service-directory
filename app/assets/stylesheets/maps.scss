@@ -1,0 +1,64 @@
+@import "variables";
+
+.map-holder{
+    width: 100%;
+    height: 400px;
+    margin-bottom: 25px;
+    border: 1px solid transparentize($grey, 0.9);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.map-toggle{
+    margin-left: auto;
+    display: inline-block;
+    &:focus-within .map-toggle__label:after{
+        box-shadow: 0px 0px 0px 3px $focus;
+    }
+    .map-toggle__label{
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &:after{
+            content: "";
+            display: block;
+            margin-left: 10px;
+            width: 45px;
+            height: 25px;
+            background: transparentize($text, 0.9);
+            border-radius: 100px;
+        }
+        &:before{
+            content: "";
+            transition: 0.1s ease-out;
+            display: block;
+            position: absolute;
+            top: 3px;
+            right: 23px;
+            width: 18px;
+            height: 18px;
+            background: $white;
+            border-radius: 100%;
+            background-image: url(asset_path("tick-white.svg"));
+            background-size: 10px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        &:hover:after{
+            background: darken(transparentize($text, 0.9), 20);
+        }
+    }
+    .map-toggle__input{
+        &:checked + label{
+            &:before{
+                transform: translateX(19px);
+                background-color: $link;
+            }
+            &:after{
+                background-color: transparentize($link, 0.8);
+            }
+        }
+    }
+}

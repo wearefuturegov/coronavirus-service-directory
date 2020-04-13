@@ -6,6 +6,26 @@
     margin-bottom: 25px;
     border-radius: 5px;
     border: 1px solid transparentize($grey, 0.9);
+
+    &.service-card--recommended{
+      border: 2px solid $link;
+      position: relative;
+      padding-top: 55px;
+      &:after{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        content: "Recommended";
+        border-radius: 3px 3px 0px 0px;
+        background: $link;
+        display: block;
+        padding: 7px 25px;
+        color: $white;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+    }
   
     .service-card__name{
       margin-bottom: 10px;

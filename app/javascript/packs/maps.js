@@ -45,12 +45,14 @@ const createMap = async () => {
 
     services.map(service => {
         let {latitude, longitude} = service
-        let marker = new google.maps.Marker({
-          position: new google.maps.LatLng(latitude,longitude),
-          map: map,
-        //   icon: icon
-        })
-        bounds.extend(marker.position)
-        marker.addListener("click", () => openDialog(service))
+        if(latitude && longitude){
+            let marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latitude,longitude),
+                map: map,
+                //   icon: icon
+            })
+            bounds.extend(marker.position)
+            marker.addListener("click", () => openDialog(service))
+        }
     }) 
 }

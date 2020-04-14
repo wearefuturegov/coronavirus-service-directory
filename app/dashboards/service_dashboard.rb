@@ -27,6 +27,8 @@ class ServiceDashboard < Administrate::BaseDashboard
     recommended: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    caretaker_email: Field::String,
+    caretaker_phone: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -62,6 +64,8 @@ class ServiceDashboard < Administrate::BaseDashboard
   recommended
   created_at
   updated_at
+  caretaker_email
+  caretaker_phone
   ].freeze
 
   # FORM_ATTRIBUTES

@@ -28,7 +28,7 @@
         </ul>
     <% end %>
 
-    <h2>About the organisation or group</h2>
+    <h2>About your organisation or group</h2>
 
     <div class="field">
         <%= f.label :name, class: "field__label" %>
@@ -42,6 +42,7 @@
 
     <fieldset class="checkboxes field">
         <legend>What can you help with</legend>
+        <p>Choose all that apply</p>
         <%= f.collection_check_boxes(:category_ids, Category.all, :id, :label)  do |b| %>
             <div class="checkbox">
                 <%= b.check_box class: "checkbox__input" %>
@@ -51,6 +52,7 @@
     </fieldset>
 
     <h2>How people can contact you</h2>
+    <p>Provide at least one way for the public to get in touch with you.</p>
 
     <div class="field">
         <%= f.label :url, class: "field__label" %>
@@ -68,6 +70,7 @@
     </div>
 
     <h2>Where you're located</h2>
+    <p>Where can the public access your services? If you cover more than one location, give your most popular location. If you cover the entire borough, leave this blank.</p>
 
     <div class="field">
         <%= f.label :street_address, class: "field__label" %>
@@ -79,11 +82,18 @@
         <%= f.text_field :postcode, class: "field__input" %>
     </div>
 
+
     <h2>Your own details</h2>
+    <p>Give us either an email address, phone number or both, in case we need to contact you about this submission.</p>
 
     <div class="field">
-        <%= f.label :admin_email, class: "field__label" %>
-        <%= f.email_field :admin_email, class: "field__input" %>
+        <%= f.label :caretaker_email, class: "field__label" %>
+        <%= f.email_field :caretaker_email, class: "field__input" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :caretaker_phone, class: "field__label" %>
+        <%= f.email_field :caretaker_phone, class: "field__input" %>
     </div>
 
     <%= f.button "Accept and send", class: "button" %>

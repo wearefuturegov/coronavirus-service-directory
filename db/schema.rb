@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_221909) do
+ActiveRecord::Schema.define(version: 2020_04_14_025734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +46,9 @@ ActiveRecord::Schema.define(version: 2020_04_11_221909) do
     t.string "how_to_contact"
     t.string "email"
     t.boolean "published", default: false, null: false
-    t.string "admin_email"
+    t.string "caretaker_email"
     t.string "street_address"
+    t.string "caretaker_phone"
   end
 
   create_table "users", force: :cascade do |t|

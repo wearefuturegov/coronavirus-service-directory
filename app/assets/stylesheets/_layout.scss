@@ -137,6 +137,20 @@
 
 .go-back{
   font-size: 0.9rem;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  &:before{
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    background-image: url(asset_path("previous.svg"));
+    height: 15px;
+    width: 8px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
 .lede{

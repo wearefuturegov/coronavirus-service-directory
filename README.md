@@ -86,6 +86,4 @@ If your data schema is different, you might need to adjust the `rails csv` task 
 
 ✅ a form for the public to **submit their own service** suggestions
 
-💌 Email notifications when a new user registers or a new service is submitted for review
-
-📡 Webhooks, so that other apps can hook into this one and subscribe to changes in its data
+✅ Email notifications to users when a new service is submitted for review

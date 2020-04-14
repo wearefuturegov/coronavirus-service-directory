@@ -28,6 +28,7 @@ class UserDashboard < Administrate::BaseDashboard
   id
   email
   created_at
+  admin
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

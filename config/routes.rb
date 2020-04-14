@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     root to: "services#index"
     resources :services
     resources :categories
-    resources :users
+    resources :users, except: [:new, :create]
   end
 
   namespace :api do

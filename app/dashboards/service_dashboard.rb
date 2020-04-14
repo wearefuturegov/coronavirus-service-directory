@@ -13,19 +13,20 @@ class ServiceDashboard < Administrate::BaseDashboard
     name: Field::String,
     published: Field::Boolean,
     description: Field::Text,
+    how_to_contact: Field::String,
     url: Field::String,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
     phone: Field::String,
+    email: Field::String,
+    street_address: Field::String,
+    postcode: Field::String,
     latitude: Field::String.with_options(searchable: false),
     longitude: Field::String.with_options(searchable: false),
-    postcode: Field::String,
     key_point_1: Field::String,
     key_point_2: Field::String,
     key_point_3: Field::String,
     recommended: Field::Boolean,
-    how_to_contact: Field::String,
-    email: Field::String,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -45,19 +46,20 @@ class ServiceDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   name
   description
+  how_to_contact
   categories
   published
   url
   phone
   email
+  street_address
+  postcode
   latitude
   longitude
-  postcode
   key_point_1
   key_point_2
   key_point_3
   recommended
-  how_to_contact
   created_at
   updated_at
   ].freeze
@@ -66,21 +68,22 @@ class ServiceDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  categories
-  name
-  published
-  description
-  url
-  phone
-  latitude
-  longitude
-  postcode
-  key_point_1
-  key_point_2
-  key_point_3
-  recommended
-  how_to_contact
-  email
+    name
+    description
+    how_to_contact
+    categories
+    published
+    url
+    phone
+    email
+    street_address
+    postcode
+    latitude
+    longitude
+    key_point_1
+    key_point_2
+    key_point_3
+    recommended
   ].freeze
 
   # COLLECTION_FILTERS

@@ -81,6 +81,24 @@
   margin-bottom: 25px;
 }
 
+.error{
+  padding: 25px;
+  background: transparentize($error, 0.9);
+  border-left: 5px solid $error;
+  margin-bottom: 35px;
+  ul{
+    margin-top: 15px;
+    margin-left: 15px;
+    li{
+      margin-bottom: 10px;
+      padding-left: 7px;
+      &:last-of-type{
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
 .page-header{
   padding: 15px;
 }

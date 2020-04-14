@@ -1,8 +1,8 @@
 class ServicesController < ApplicationController
 
     def index
-        @services = Service.page(params[:page])
-        @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) if params[:category].present?
+        @services = Service.includes(:categories).page(params[:page])
+        @services = @services.where("categories.name in (?)", params[:category]) if params[:category].present?
         if params[:postcode].present?
             @locations = Geocoder.search(params[:postcode], region: "gb")
             @services = @services.near(@locations.first.coordinates, 200) if @locations.present?

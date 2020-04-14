@@ -27,6 +27,7 @@ export const openDialog = data => {
         <header class="dialog__header">
             <h2 class="dialog__name">${data.name}</h2>
             <p class="dialog__description">${data.description}</p>
+            ${data.how_to_contact ? `<p class="dialog__description">${data.how_to_contact}</p>` : ""}
             ${data.url ? `<a href="${data.url}" class="button">Visit website</a>` : ""}
         </header>
         <ul class="dialog__key-points">

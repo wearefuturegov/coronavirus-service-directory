@@ -16,16 +16,18 @@
     </ul>
 
     <footer class="service-card__footer">
-        <aside class="service-card__subsection">
-            <h3 class="service-card__subsection-title">Where</h3>
-            <p><%= s.street_address %></p>
-            <p><%= s.postcode %></p>
-        </aside>
+        <% if s.postcode.present? %>
+            <aside class="service-card__subsection">
+                <h3 class="service-card__subsection-title">Where</h3>
+                <% if s.street_address.present? %><p><%= s.street_address %></p><% end %>
+                <p><%= s.postcode %></p>
+            </aside>
+        <% end %>
 
         <aside class="service-card__subsection">
             <h3 class="service-card__subsection-title">Contact</h3>
-            <p class="service-card__email"><%= link_to s.email, "mailto:#{s.email}"%></p>
-            <p class="service-card__phone"><%= s.phone %> </p>
+            <% if s.email.present? %><p class="service-card__email"><%= link_to s.email, "mailto:#{s.email}"%></p><% end %>
+            <% if s.phone.present? %><p class="service-card__phone"><%= s.phone %> </p><% end %>
         </aside>
     </footer>
 </li>

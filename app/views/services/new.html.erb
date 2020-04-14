@@ -19,7 +19,7 @@
     </div>
 <% end %>
 
-<%= form_for @new_service, local: true, :html => { class: "two-thirds" } do |f| %>
+<%= form_for @new_service, url: new_service_path, local: true, :html => { class: "two-thirds" } do |f| %>
 
     <% if @new_service.errors.any? %>
         <div class="error">

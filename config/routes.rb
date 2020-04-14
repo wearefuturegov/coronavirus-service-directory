@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   root "services#index"
-  resources :services, only: [:index, :new, :create]
+  resources :services, only: [:index, :new] do
+    collection do
+      post "/new", to: "services#create"
+    end
+  end
+
+  # resources :services, only: [:index, :new, :create]
 
   devise_for :users
   devise_scope :user do

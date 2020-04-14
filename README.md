@@ -12,8 +12,8 @@ Originally commissioned by Camden Borough Council. There are alternate skins for
 It has:
 - 📍 A simple **search form and results page** where the user chooses the kind of help they need and gives their postcode, then sees relevant services
 - 👩‍💻 A **read-only JSON API** for other applications to consume. Available at `/api/services`
-- 🔐 An **admin panel** and user accounts. Anyone can register but to sign in an existing user must first approve the account.
-- 🕵️‍♀️ A form for users to **submit their own services**, which can then be published by an admin
+- 🔐 An **admin panel** and user accounts. Anyone can register but to sign in an existing user must first approve the account. At `/admin`.
+- 🕵️‍♀️ A form for users to **submit their own services**, which can then be published by an admin. At `/services/new`.
 
 It uses the [`geocoder`](https://github.com/alexreisner/geocoder) gem and [Google's geocoding API](https://developers.google.com/maps/documentation/geocoding/intro) to power geographical functionality.
 

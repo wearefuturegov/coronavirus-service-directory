@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Category", type: :model do
+RSpec.describe Category, type: :model do
+
+    describe 'associations' do
+        it { is_expected.to have_and_belong_to_many(:services) }
+    end
     
     it "is not valid without a name" do
         expect(Category.new).to_not be_valid 

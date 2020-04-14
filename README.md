@@ -78,8 +78,11 @@ If your data schema is different, you might need to adjust the `rails csv` task 
 ## Roadmap
 
 ✅ an optional **map view**
+
 ✅ a **recommended service** feature, which bumps one service per category to the top of the list
+
 ✅ **admin user accounts** and a proper admin panel
+
 ✅ a form for the public to **submit their own service** suggestions
 
 💌 Email notifications when a new user registers or a new service is submitted for review

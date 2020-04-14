@@ -124,7 +124,10 @@
     }
 
     .dialog__map{
-        width: 100%;
-        display: block;
+        display: none;
+        @media screen and (min-width: $breakpoint){
+            width: 100%;
+            display: block;
+        }
     }
 }

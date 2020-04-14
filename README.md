@@ -3,6 +3,8 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](
 https://heroku.com/deploy)
 
+**There's some good stuff happening on the V2 branch of this repo. Take a look!**
+
 A simple, production-ready directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. 
 
 Originally commissioned by Camden Borough Council. There are alternate skins for different councils on branches. [Read about the project here](https://coronaviruslocalresponse.co.uk/).
@@ -83,3 +85,5 @@ Over the next few weeks to months, we're looking to add:
 - a **recommended service** feature, which bumps one service per category to the top of the list
 - **admin user accounts** and a proper admin panel
 - a form for the public to **submit their own service** suggestions
+
+**UPDATE: these features are now in beta and being tested over on the V2 branch. Take a look!**

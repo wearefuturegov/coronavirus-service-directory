@@ -27,6 +27,7 @@ class ServiceDashboard < Administrate::BaseDashboard
     recommended: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    attribution: Field::String,
     caretaker_email: Field::String,
     caretaker_phone: Field::String
   }.freeze
@@ -37,10 +38,10 @@ class ServiceDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  name
-  description
-  url
-  published
+    name
+    url
+    published
+    updated_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -64,6 +65,7 @@ class ServiceDashboard < Administrate::BaseDashboard
   recommended
   created_at
   updated_at
+  attribution
   caretaker_email
   caretaker_phone
   ].freeze

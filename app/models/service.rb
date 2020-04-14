@@ -6,14 +6,13 @@ class Service < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  validate :validate_contacts
 
-  # validate :validate_contacts
-
-  # def validate_contacts
-  #   if record.phone.blank? && record.email.blank? && record.url.blank?
-  #     errors.add(:phone, ", contact email and website URL can't all be blank")
-  #   end
-  # end
+  def validate_contacts
+    if phone.blank? && email.blank? && url.blank?
+      errors.add(:base, "Phone, contact email and website URL can't all be blank")
+    end
+  end
 
   paginates_per 12
 

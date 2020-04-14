@@ -54,6 +54,8 @@ task :csv => :environment do
 
         service.published = true
 
+        service.attribution = "Imported from spreadsheet"
+
         if service.save
             puts "Added #{service.name}"
         else

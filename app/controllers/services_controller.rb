@@ -20,8 +20,9 @@ class ServicesController < ApplicationController
 
     def create
         @new_service = Service.new(service_params)
+        @new_service.attribution = "Public submission"
         if @new_service.save
-            render :success
+            redirect_to root_path, notice: "Submitted successfully"
         else
             render :new
         end
@@ -30,7 +31,18 @@ class ServicesController < ApplicationController
     private
 
     def service_params
-        params.require(:service).permit(:name, :description)
+        params.require(:service).permit(
+            :name, 
+            :description,
+            :phone,
+            :url,
+            :email,
+            :street_address,
+            :postcode,
+            :caretaker_email,
+            :caretaker_phone,
+            category_ids: []
+        )
     end
 
 end

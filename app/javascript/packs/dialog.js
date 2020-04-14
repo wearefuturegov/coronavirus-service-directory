@@ -39,11 +39,11 @@ export const openDialog = data => {
                 <h3 class="dialog__subsection-title">Where</h3>
                 ${data.street_address && `<p>${data.street_address}</p>`} 
                 ${data.postcode && `<p>${data.postcode}</p>`} 
-                <a href="https://maps.google.com/search/${data.postcode}">Get directions</a>
+                <p><a href="https://maps.google.com/search/${data.postcode}">Get directions</a></p>
             </aside>
             <aside class="dialog__subsection">
                 <h3 class="dialog__subsection-title">Contact</h3>
-                ${data.email && `<a href="mailto:${data.email}">${data.email}</a>`} 
+                ${data.email && `<p><a href="mailto:${data.email}">${data.email}</a></p>`} 
                 ${data.phone && `<p>${data.phone}</p>`} 
             </aside>
         </footer>

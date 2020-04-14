@@ -41,9 +41,10 @@ task :csv => :environment do
         end
 
         service.url = row[9]
-        service.phone = row[10]
-        service.email = row[11]
+        service.email = row[10]
+        service.phone = row[11]
         service.postcode = row[12]
+        service.street_address = row[13]
         # ...
         service.recommended = row[15]
         service.key_point_1 = row[16]

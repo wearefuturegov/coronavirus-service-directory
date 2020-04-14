@@ -41,7 +41,7 @@ export const openDialog = data => {
                 ${data.street_address ? `<p>${data.street_address}</p>` : ""} 
                 ${data.postcode ? `
                     <p>${data.postcode}</p>
-                    <p><a href="https://maps.google.com/search/${data.postcode}">Get directions</a></p>
+                    <p><a href="https://maps.google.com/maps/search/${data.postcode}">Get directions</a></p>
                 ` : ""} 
             </aside>
             <aside class="dialog__subsection">
@@ -51,7 +51,7 @@ export const openDialog = data => {
             </aside>
         </footer>
         ${data.postcode ? `
-            <a href="https://maps.google.com/search/${data.postcode}" class="dialog__map-link">
+            <a href="https://maps.google.com/maps/search/${data.postcode}" class="dialog__map-link">
                 <img class="dialog__map" src="https://maps.googleapis.com/maps/api/staticmap?key=${process.env.GOOGLE_CLIENT_KEY}&size=800x250&markers=${data.latitude},${data.longitude}" alt=""/>
             </a>
         ` : ""}

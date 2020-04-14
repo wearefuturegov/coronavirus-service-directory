@@ -27,6 +27,7 @@ The following environment variables can be set:
 - `GOOGLE_CLIENT_KEY`: a API key from Google with the maps and [static maps](https://developers.google.com/maps/documentation/maps-static/intro) APIs enabled, used in the browser. This one will be publicly exposed to lock it down to just the hosts you plan to run the app on.
 - `GA_PROPERTY_ID`: optional, for Google Analytics tracking
 - `DATASOURCE`: optional, public URL to a CSV data source, [see below](#seeding-the-production-database)
+- `SENDGRID_API_KEY` in order to send emails. You could configure the app to use another service like [Notify](https://www.notifications.service.gov.uk/) instead if you wish.
 
 ## Running it locally
 

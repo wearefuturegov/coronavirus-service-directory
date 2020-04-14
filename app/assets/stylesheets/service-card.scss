@@ -64,7 +64,8 @@
   
     .service-card__categories{
       list-style: none;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+
     }
     .service-card__category{
       display: inline-block;
@@ -72,6 +73,7 @@
       border: 1px solid $text;
       padding: 3px 5px;
       border-radius: 3px;
+      margin-bottom: 5px;
     }
   
     .service-card__footer{

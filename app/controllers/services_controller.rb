@@ -22,6 +22,7 @@ class ServicesController < ApplicationController
         @new_service = Service.new(service_params)
         @new_service.attribution = "Public submission"
         if @new_service.save
+            ServiceMailer.with(service: @new_service).new_submission.deliver_later
             redirect_to root_path, notice: "Your service has been submitted successfully. We'll be in touch if we need anything more from you."
         else
             render :new

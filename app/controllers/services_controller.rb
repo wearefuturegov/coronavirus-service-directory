@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
         @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) if params[:category].present?
         respond_to do |format|
             format.html
-            format.json { render json: @services }
+            format.json { render json: ServiceSerializer.new(@services).serializable_hash }
         end
     end
 

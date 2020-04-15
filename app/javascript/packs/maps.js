@@ -35,7 +35,7 @@ const createMap = async () => {
             "Cache-Control": "no-cache "
         }
     })
-    let services = await res.json()
+    let data = await res.json()
 
     const loader = new Loader(process.env.GOOGLE_CLIENT_KEY)
     const google = await loader.load()
@@ -46,9 +46,8 @@ const createMap = async () => {
     })
     bounds = new google.maps.LatLngBounds()
 
-
-    services.map(service => {
-        let {latitude, longitude} = service
+    data.data.map(service => {
+        let {latitude, longitude} = service.attributes
         if(latitude && longitude){
             let marker = new google.maps.Marker({
                 position: new google.maps.LatLng(latitude,longitude),

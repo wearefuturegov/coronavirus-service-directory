@@ -1,4 +1,5 @@
 import {Loader, LoaderOptions} from "google-maps"
+import fetch from "unfetch"
 import {openDialog} from "./dialog"
 import icon from "../../assets/images/marker.png"
 

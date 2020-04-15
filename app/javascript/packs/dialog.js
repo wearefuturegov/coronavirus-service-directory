@@ -1,4 +1,5 @@
 import MicroModal from "micromodal"
+import fetch from "unfetch"
 
 MicroModal.init({
     openClass: "is-open",

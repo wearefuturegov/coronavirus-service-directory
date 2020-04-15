@@ -5,7 +5,8 @@
     "@rails/webpacker": "4.2.2",
     "dotenv": "^8.2.0",
     "google-maps": "^4.2.3",
-    "micromodal": "^0.4.6"
+    "micromodal": "^0.4.6",
+    "unfetch": "^4.1.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"

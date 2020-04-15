@@ -30,7 +30,10 @@ const initialiseToggle = () => {
 
 const createMap = async () => {
     let res = await fetch(window.location, {
-        headers: {Accept: "application/json"}
+        headers: {
+            Accept: "application/json",
+            "Cache-Control": "no-cache "
+        }
     })
     let services = await res.json()
 

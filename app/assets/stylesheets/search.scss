@@ -37,6 +37,7 @@
     .search__select{
         appearance: none;
         -moz-appearance: none;
+        -ms-appearence: none;
         -webkit-appearance: none;
         font-size: 1.3rem;
         cursor: pointer;
@@ -53,6 +54,9 @@
         &:focus{
           outline: 3px solid $focus;
         }
+        &::-ms-expand {
+          display: none;
+      }
     }
 
 

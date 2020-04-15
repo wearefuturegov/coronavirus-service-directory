@@ -11,6 +11,8 @@ class Service < ApplicationRecord
   validate :validate_contacts
   validate :validate_caretaker
 
+  default_scope -> { where(published: true) } 
+
   def validate_contacts
     if phone.blank? && email.blank? && url.blank?
       errors.add(:base, "You need to give at least one way for the public to contact this service")

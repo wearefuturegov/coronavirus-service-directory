@@ -109,8 +109,10 @@
         word-wrap: anywhere;
         &:first-of-type{
             margin-bottom: 25px;
-            @media screen and (min-width: 350px){
-                margin-bottom: 0px;
+            @supports (display: grid){
+                @media screen and (min-width: 350px){
+                    margin-bottom: 0px;
+                }
             }
         }
     }

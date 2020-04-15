@@ -33,9 +33,9 @@ RSpec.describe Service, type: :model do
         expect(build(:service, attribution: "Public submission", caretaker_email: "example@test.com")).to be_valid
     end
 
-    it "it shouldn't be published by default" do
-        expect(create(:service).published).to be(false)
-    end
+    # it "it shouldn't be published by default" do
+    #     expect(create(:service).published).to be(false)
+    # end
 
     it "geocodes from a postcode" do
         service = create(:service, postcode: "W1A 6US")

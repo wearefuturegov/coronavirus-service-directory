@@ -10,4 +10,14 @@ module ServicesHelper
     def is_initial?
         params[:postcode].blank? && params[:category].blank? && params[:page].blank?
     end
+    
+    def rough_distance(distance)
+        if distance < 1
+          "Less than a mile away"
+        elsif (1 < distance) && (distance < 2)
+          "About a mile away"
+        else
+          "About #{distance.round} miles away"
+        end
+    end
 end

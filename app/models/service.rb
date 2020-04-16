@@ -11,7 +11,7 @@ class Service < ApplicationRecord
   validate :validate_contacts
   validate :validate_caretaker
 
-  default_scope -> { where(published: true) } 
+  scope :published, -> { where(published: true) } 
 
   def validate_contacts
     if phone.blank? && email.blank? && url.blank?

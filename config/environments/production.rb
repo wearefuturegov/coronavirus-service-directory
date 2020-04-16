@@ -10,6 +10,8 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.force_ssl = true
+
   config.action_mailer.default_url_options = { host: ENV["HOSTNAME"] || "please-change-me" }
 
   # Full error reports are disabled and caching is turned on.

@@ -5,7 +5,7 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](
 https://heroku.com/deploy)
 
-**There's some good stuff happening on the V2 branch of this repo. Take a look!**
+**Issues and especially pull requests are welcome. Take a look at the issues tab to see what needs doing.**
 
 A simple, production-ready directory of services that can help residents cope if they're staying at home due to the coronavirus pandemic. 
 

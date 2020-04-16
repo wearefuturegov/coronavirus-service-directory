@@ -13,12 +13,12 @@
 
   <div class="field half">
     <%= f.label :password, class: "field__label"%>
-    <%= f.text_field :password, required: true, class: "field__input" %>
+    <%= f.password_field :password, required: true, class: "field__input" %>
   </div>
 
   <div class="field half">
     <%= f.label :password_confirmation, class: "field__label"%>
-    <%= f.text_field :password_confirmation, required: true, class: "field__input" %>
+    <%= f.password_field :password_confirmation, required: true, class: "field__input" %>
   </div>
 
   <%= f.button "Sign up", class: "button" %>

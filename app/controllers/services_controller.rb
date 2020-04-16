@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
 
     def index
-        @services = Service.published.page(params[:page]).joins(:categories).preload(:categories)
+        @services = Service.published.page(params[:page]).joins(:categories).preload(:categories).distinct
         if params[:postcode].present?
             @locations = Geocoder.search(params[:postcode], region: "gb")
             @services = @services.near(@locations.first.coordinates, 200) if @locations.present?

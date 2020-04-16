@@ -1,75 +1,46 @@
-class Admin::ServicesController < ApplicationController
-  before_action :set_admin_service, only: [:show, :edit, :update, :destroy]
+module Admin
+  class ServicesController < Admin::ApplicationController
+    # Overwrite any of the RESTful controller actions to implement custom behavior
+    # For example, you may want to send an email after a foo is updated.
+    #
+    # def update
+    #   super
+    #   send_foo_updated_email(requested_resource)
+    # end
 
-  # GET /admin/services
-  # GET /admin/services.json
-  def index
-    @admin_services = Service.all
-    # byebug
+    # Override this method to specify custom lookup behavior.
+    # This will be used to set the resource for the `show`, `edit`, and `update`
+    # actions.
+    #
+    # def find_resource(param)
+    #   Foo.find_by!(slug: param)
+    # end
+
+    # The result of this lookup will be available as `requested_resource`
+
+    # Override this if you have certain roles that require a subset
+    # this will be used to set the records shown on the `index` action.
+    #
+    # def scoped_resource
+    #   if current_user.super_admin?
+    #     resource_class
+    #   else
+    #     resource_class.with_less_stuff
+    #   end
+    # end
+
+    # Override `resource_params` if you want to transform the submitted
+    # data before it's persisted. For example, the following would turn all
+    # empty values into nil values. It uses other APIs such as `resource_class`
+    # and `dashboard`:
+    #
+    # def resource_params
+    #   params.require(resource_class.model_name.param_key).
+    #     permit(dashboard.permitted_attributes).
+    #     transform_values { |value| value == "" ? nil : value }
+    # end
+
+    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
+    # for more information
   end
-
-  # GET /admin/services/1
-  # GET /admin/services/1.json
-  def show
-  end
-
-  # GET /admin/services/new
-  def new
-    @admin_service = Service.new
-  end
-
-  # GET /admin/services/1/edit
-  def edit
-  end
-
-  # POST /admin/services
-  # POST /admin/services.json
-  def create
-    @admin_service = Service.new(admin_service_params)
-
-    respond_to do |format|
-      if @admin_service.save
-        format.html { redirect_to @admin_service, notice: 'Service was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_service }
-      else
-        format.html { render :new }
-        format.json { render json: @admin_service.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /admin/services/1
-  # PATCH/PUT /admin/services/1.json
-  def update
-    respond_to do |format|
-      if @admin_service.update(admin_service_params)
-        format.html { redirect_to [:admin, @admin_service], notice: 'Service was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_service }
-      else
-        format.html { render :edit }
-        format.json { render json: @admin_service.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /admin/services/1
-  # DELETE /admin/services/1.json
-  def destroy
-    @admin_service.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_services_url, notice: 'Service was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_service
-      @admin_service = Service.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def admin_service_params
-      params.require(:service).permit(:name, :description, :url, :key_points, :postcode, :phone, category: [])
-    end
 end

@@ -1,0 +1,62 @@
+@import "variables";
+
+*{
+    font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: $text;
+}
+
+body{
+  background: $pale;
+}
+
+h1, h2, h3, h4, h5{
+    line-height: 1.1;
+  }
+  
+  p{
+    line-height: 1.5;
+  }
+  
+  a{
+    color: $link;
+    &:hover{
+      text-decoration: none;
+    }
+    &:focus{
+      background: $focus;
+      outline: 1px solid $focus;
+    }
+    &:active{
+        color: $text;
+    }
+}
+
+*::-moz-focus-inner,
+button::-moz-focus-inner,
+select::-moz-focus-inner,
+*::-moz-focusring,
+*::-moz-focus-outer{
+  outline: none;
+  border: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+.visually-hidden{
+  position: absolute !important;
+  height: 1px; 
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.turbolinks-progress-bar {
+  background-color: $link;
+}

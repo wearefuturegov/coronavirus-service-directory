@@ -20,38 +20,72 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <noscript><div class="noscript">You can still use this service without JavaScript, but some features might not work.</div></noscript>
 
-    <header class="site-header">
-      <div class="container">
-        <a href="https://www.camden.gov.uk" class="site-header__masthead">
-          <%= image_tag "logo.svg", alt: "Camden Council" %>
-        </a>
-      </div>
-    </header>
+      <section class="beta-banner">
+        <div class="beta-banner__inner container">
+          <strong class="beta-banner__tag">Beta</strong>
+          <p class="beta-banner__message">We're updating this website every day — <a href="https://forms.gle/KccDGFHTpbcGLGob7">your feedback</a> helps us improve it.</p>
+        </div>
+      </section>
 
-    <section class="beta-banner">
-      <div class="beta-banner__inner container">
-        <strong class="beta-banner__tag">Beta</strong>
-        <p class="beta-banner__message">We're updating this website every day — <a href="https://forms.gle/KccDGFHTpbcGLGob7">your feedback</a> helps us improve it.</p>
-      </div>
-    </section>
+      <header class="site-header">
+        <div class="container">
+          <a href="https://www.camden.gov.uk" class="site-header__masthead">
+            <%= image_tag "logo.svg", alt: "Camden Council" %>
+          </a>
+        </div>
+      </header>
 
-    <div class="main-content-area">
-      <div class="container">
-        <%= yield %>
-      </div>
-    </div>
+      <header class="page-header">
+        <div class="container">
+          <%= yield :header %>
+        </div>
+      </header>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p class="site-footer__notice">© 2020 The London Borough of Camden</p>
-        <nav class="site-footer__menu">
-          <a class="site-footer__link" href="https://www.camden.gov.uk/data-protection-privacy-and-cookies">Privacy & cookies</a>
-          <a class="site-footer__link" href="https://www.camden.gov.uk/contact-camden">Contact us</a>
-          <a class="site-footer__link" href="https://forms.gle/KccDGFHTpbcGLGob7">Give feedback on this service</a>
-        </nav>
+      <div class="main-content-area">
+        <div class="container">
+          <% if notice %><p class="notice"><%= notice %></p><% end %>
+          <% if alert %><p class="alert"><%= alert %></p><% end %>
+
+          <%= yield %>
+        </div>
       </div>
-    </footer>
+
+      <%= yield :after_content %>
+
+      <footer class="site-footer">
+        <div class="container">
+          <p class="site-footer__notice">© 2020 The London Borough of Camden</p>
+          <nav class="site-footer__menu">
+            <a class="site-footer__link" href="https://www.camden.gov.uk/data-protection-privacy-and-cookies">Privacy & cookies</a>
+            <a class="site-footer__link" href="https://www.camden.gov.uk/contact-camden">Contact us</a>
+            <a class="site-footer__link" href="https://forms.gle/KccDGFHTpbcGLGob7">Give feedback on this service</a>
+          </nav>
+        </div>
+      </footer>
+
+    <%# </div> %>
+
+
+    <%# <div class="dialog" id="my-accessible-dialog">
+      <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide></div>
+      <dialog class="dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription">
+        <button data-a11y-dialog-hide class="dialog-close" aria-label="Close this dialog window">&times;</button>
+
+        <h1 id="dialogTitle">Subscribe to ESPI Newsletter</h1>
+
+        <p id="dialogDescription">Fill in the ridiculously small form below to receive our ridiculously cool newsletter!</p>
+
+        <form action="http://edenspiekermann.us10.list-manage.com/subscribe/post?u=927d6a7cf437da88aac7a87ec&amp;id=6823ab7bb8" method="post" target="_blank">
+          <label for="email">Email (required)</label>
+          <input type="email" name="EMAIL" id="email" placeholder="john.doe@gmail.com" required>
+          <button type="submit" name="button">Sign up</button>
+        </form>
+      </dialog>
+    </div> %>
+
+    <%= javascript_pack_tag 'application' %>
 
     <script type="text/javascript">(function(){var sz=document.createElement("script");sz.type="text/javascript";sz.async=true;sz.src="//siteimproveanalytics.com/js/siteanalyze_310205.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(sz,s)})();</script>
 

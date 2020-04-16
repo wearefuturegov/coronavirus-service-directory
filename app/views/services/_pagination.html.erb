@@ -1,0 +1,26 @@
+<nav class="pagination">
+
+    <p>Page <strong><%= params[:page] || "1" %></strong> of <strong><%= model.total_pages %></strong></p>
+
+    <% if previous_page_url(model) %>
+        <%= link_to image_tag("previous.svg", alt: "Previous page"),
+            path_to_previous_page(model), 
+            class: "pagination__previous" 
+        %>
+    <% else %>
+        <div class="pagination__previous pagination__previous--disabled">
+            <%= image_tag "previous.svg", alt: "Previous page" %>
+        </div>
+    <% end %>
+
+    <% if next_page_url(model) %>
+        <%= link_to image_tag("next.svg", alt: "Next page"), 
+            path_to_next_page(model), 
+            class: "pagination__next" 
+        %>
+    <% else %>
+        <div class="pagination__next pagination__next--disabled">
+            <%= image_tag "next.svg", alt: "Next page" %>
+        </div>
+    <% end %>
+</nav>

@@ -1,22 +1,27 @@
 Rails.application.routes.draw do
 
-  root "services#search"
-
-  # public routes
-  resources :services, only: [:index] do
+  root "services#index"
+  resources :services, only: [:index, :new] do
     collection do
-      get 'search'
+      post "/new", to: "services#create"
     end
   end
 
-  namespace :api do
-    resources :services, only: [:index]
+  devise_for :users
+  devise_scope :user do
+    get "login", to: "devise/sessions#new"
+    get "register", to: "devise/registrations#new"
   end
 
-  # # admin routes
-  # namespace :admin do
-  #   # root "services#search"
-  #   resources :services
-  # end
+  namespace :admin do
+    root to: "services#index"
+    resources :services
+    resources :categories
+    resources :users, except: [:new, :create]
+  end
+
+  namespace :api do
+    resources :services, only: [:index, :show]
+  end
 
 end

@@ -1,29 +1,70 @@
-<%= link_to root_path, class: "go-back" do %>
-    <%= image_tag "back.svg", alt: "" %> <span>Go back</span>
+<% content_for :header do %>
+    <div class="two-thirds">
+        <ul class="breadcrumbs">
+            <li class="breadcrumbs__crumb">
+                <a href="https://www.camden.gov.uk/" class="breadcrumbs__link">Home</a>
+            </li>
+            <li class="breadcrumbs__crumb">
+                <a href="https://www.camden.gov.uk/COVID-19" class="breadcrumbs__link">Coronavirus</a>
+            </li>
+            <% if is_initial? %>    
+                <li class="breadcrumbs__crumb">Get self-isolation help</li>
+            <% else %>
+                <li class="breadcrumbs__crumb">
+                    <%= link_to "Get self-isolation help", root_path %>
+                </li>    
+                <li class="breadcrumbs__crumb">Results</li>
+            <% end %>
+        </ul>        
+        <% if is_initial? %>    
+            <h1 class="page-title">Get help if you’re staying at home because of coronavirus</h1>
+            <p class="lede">Find volunteer groups and other services in your local area who can help you cope.</p>
+        <% else %>
+            <h1 class="page-title page-title--small">Your results</h1>
+        <% end %>
+    </div>
 <% end %>
 
-<div class="two-thirds">
-    <h1 class="page-title">These groups and services may be able to help</h1>
-</div>
+<%= render "search-form" %>
 
-<% if (params[:categories] && params[:categories].include?("financial")) %>
-    <section class="important">
-        <p>If your income has stopped or dropped as a result of coronavirus, you might be able to get financial support.</p>
-        <a class="important__link" href="https://www.camden.gov.uk/COVID-19">Details and how to apply</a>
+<% if @services.present? %>
+    <%= render "advice-snippets" %>
+
+    <header class="grid-actions">
+        <% if @locations.present? %>
+            <p>Results near <strong><%= location_summary(@locations) %></strong></p>
+        <% end %>
+
+        <div class="map-toggle">
+            <input type="checkbox" id="map-toggle" class="map-toggle__input visually-hidden" aria-expanded="false">
+            <label for="map-toggle" class="map-toggle__label">Show map?</label>
+        </div>
+    </header>
+
+    <div class="map-holder" hidden></div>
+
+    <ol class="services-grid">
+        <% @services.each do |s| %>
+            <%= render "service-card", s: s %>
+        <% end %>
+    </ol>
+
+    <%= render "pagination", model: @services %>
+<% end %>
+
+<% content_for :after_content do %>
+    <section class="calls-to-action">
+        <div class="container calls-to-action__inner">
+            <aside class="calls-to-action__call">
+                <h2>Can't find what you need?</h2>
+                <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/COVID-19">see our other coronavirus resources</a>.</p>
+            </aside>
+            <aside class="calls-to-action__call">
+                <h2>Tell us about a service</h2>
+                <p>If you represent a group or service that’s offering help during the coronavirus pandemic, <%= link_to "tell us about it", new_service_path %>.</a>
+            </aside>
+        </div>
     </section>
 <% end %>
 
-<ol class="service-results">
-    <% @top_result.each do |s| %>
-        <%= render partial: "shared/service_card", locals: {s: s, recommended: true} %>
-    <% end %>
-
-    <% @services.each do |s| %>
-        <%= render partial: "shared/service_card", locals: {s: s, recommended: false} %>
-    <% end %>
-</ol>
-
-<section class="safeguarding">
-    <h2>Can't find what you need?</h2>
-    <p>If you’re worried about yourself or someone you care about, <a href="https://www.camden.gov.uk/COVID-19">see our other coronavirus resources</a>.</p>
-</section>
+<%= render "dialog" %>

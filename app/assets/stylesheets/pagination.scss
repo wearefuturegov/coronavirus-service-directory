@@ -1,0 +1,40 @@
+@import "variables";
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  
+    .pagination__previous,
+    .pagination__next{
+      background: $pale;
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 2px solid $link;
+      margin-left: 10px;
+      &:hover{
+        text-decoration: underline;
+      }
+      &:focus{
+        outline: 3px solid $focus;
+      }
+      &.pagination__previous--disabled,
+      &.pagination__next--disabled{
+        opacity: 0.25;
+      }
+    }
+
+    .pagination__previous{
+      margin-left: 15px;
+    }
+
+  }

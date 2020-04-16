@@ -1,0 +1,240 @@
+@import "_variables.scss";
+
+.noscript{
+  padding: 15px;
+  font-size: 1.1rem;
+  color: $white;
+  font-weight: bold;
+  background: $error;
+  text-align: center;
+}
+
+.container{
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.site-header{
+  background: $white;
+  padding: 15px;
+  .site-header__masthead{
+    display: inline-block;
+  }
+  img{
+    display: block;
+  }
+}
+
+.main-content-area{
+  padding: 45px 15px;
+  background: $pale;
+  @media screen and (min-width: $breakpoint){
+    padding: 60px 15px;
+  }
+}
+
+.half{
+  @media screen and (min-width: $breakpoint){
+    max-width: 50%;
+  }
+}
+
+.two-thirds{
+  @media screen and (min-width: $breakpoint){
+    max-width: 66.67%;
+  }
+}
+
+.site-footer{
+  background: $text;
+  padding: 50px 15px;
+  .site-footer__notice{
+    color: $white;
+    margin-bottom: 20px;
+  }
+  .site-footer__link{
+    color: $white;
+    display: inline-block;
+    margin-right: 15px;
+    &:focus{
+      color: $text;
+    }
+  }
+}
+
+.notice{
+  padding: 25px;
+  background: transparentize($link, 0.9);
+  border-left: 5px solid $link;
+  margin-bottom: 35px;
+  .notice__link{
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+}
+
+.alert{
+  padding: 25px;
+  background: transparentize($focus, 0.9);
+  border-left: 5px solid $focus;
+  margin-bottom: 35px;
+}
+
+.error{
+  padding: 25px;
+  background: transparentize($error, 0.9);
+  border-left: 5px solid $error;
+  margin-bottom: 35px;
+  ul{
+    margin-top: 15px;
+    margin-left: 15px;
+    li{
+      margin-bottom: 10px;
+      padding-left: 7px;
+      &:last-of-type{
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+.page-header{
+  padding: 15px;
+}
+
+.breadcrumbs{
+  list-style: none;
+  margin-bottom: -5px;
+  .breadcrumbs__crumb{
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 5px;
+    &:after{
+      display: inline-block;
+      content: "/";
+      margin-left: 7px;
+      margin-right: 7px;
+      color: transparentize($text, 0.5)
+    }
+    &:last-of-type:after{
+      content: none;
+    }
+  }
+}
+.page-title{
+  margin-top: 55px;
+  font-size: 2rem;
+  @media screen and (min-width: $breakpoint){
+    font-size: 3rem;
+  }
+  &.page-title--small{
+    @media screen and (min-width: $breakpoint){
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.go-back{
+  font-size: 0.9rem;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  &:before{
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+    background-image: url(asset_path("previous.svg"));
+    height: 15px;
+    width: 8px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.lede{
+  margin-top: 25px;
+  font-size: 1.2rem;
+}
+
+
+.beta-banner{
+  background: $focus;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  .beta-banner__inner{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .beta-banner__tag{
+    background: $text;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    margin-right: 10px;
+    color: $focus;
+  }
+  .beta-banner__message{
+    padding-top: 1px;
+  }
+  a{
+    color: $text;
+    &:focus{
+      color: $focus;
+      background: $text;
+    }
+  }
+}
+
+.services-grid{
+  list-style: none;
+  @media screen and (min-width: $breakpoint){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+}
+
+.grid-actions{
+  margin-bottom: 15px;
+  @media screen and (min-width: $breakpoint){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.calls-to-action{
+  background: $white;
+  padding: 50px 35px;
+  text-align: center;
+  @media screen and (min-width: $breakpoint){
+    padding: 80px 15px;
+    text-align: left;
+  }
+
+  .calls-to-action__inner{
+    @media screen and (min-width: $breakpoint){
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .calls-to-action__call:first-of-type{
+    margin-bottom: 50px;
+    @media screen and (min-width: $breakpoint){
+      margin-bottom: 0px;
+      margin-right: 35px;
+      padding-right: 35px;
+      border-right: 1px solid transparentize($text, 0.5);
+    }
+  }
+  h2{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  .calls-to-action__call{
+    font-size: 1.1rem;
+  }
+}

@@ -1,43 +1,49 @@
 class ServicesController < ApplicationController
 
-    def search
-        @categories = Service.categories
+    def index
+        @services = Service.page(params[:page]).joins(:categories).preload(:categories)
+        if params[:postcode].present?
+            @locations = Geocoder.search(params[:postcode], region: "gb")
+            @services = @services.near(@locations.first.coordinates, 200) if @locations.present?
+            flash[:alert] = "Couldn't find any services near that location. Is it a valid postcode or area in Camden?" if @services.empty? || @locations.blank?
+        end
+        @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) if params[:category].present?
+        respond_to do |format|
+            format.html
+            format.json { render json: ServiceSerializer.new(@services).serializable_hash }
+        end
     end
 
-    def index
-        results = Geocoder.search(params[:postcode], region: "gb")
+    def new
+        @new_service = Service.new
+    end
 
-        if results.length > 0
-            @top_result = Service
-                .where("recommended = TRUE AND category && ARRAY[?]::varchar[]", params[:categories])
-                .limit(1)
-
-            @result = results.first.formatted_address
-            @coordinates = Geocoder.coordinates(params[:postcode])
-
-            if @top_result.length > 0
-                if params[:categories]
-                    @services = Service
-                        .where("category && ARRAY[?]::varchar[] AND id != ?", params[:categories], @top_result[0].id)
-                        .near(results.first.coordinates, 200)
-                else
-                    @services = Service
-                        .where("id != ?", @top_result[0].id)
-                        .near(results.first.coordinates, 200)
-                end
-            else
-                if params[:categories]
-                    @services = Service
-                        .where("category && ARRAY[?]::varchar[]", params[:categories])
-                        .near(results.first.coordinates, 200)
-                else
-                    @services = Service
-                        .near(results.first.coordinates, 200)
-                end
-            end
+    def create
+        @new_service = Service.new(service_params)
+        @new_service.attribution = "Public submission"
+        if @new_service.save
+            ServiceMailer.with(service: @new_service).new_submission.deliver_later
+            redirect_to root_path, notice: "Your service has been submitted successfully. We'll be in touch if we need anything more from you."
         else
-            redirect_to search_services_path, :notice => "Couldn't find any services near that location. Please make sure your location is a valid Camden area."
+            render :new
         end
-    end 
+    end
+
+    private
+
+    def service_params
+        params.require(:service).permit(
+            :name, 
+            :description,
+            :phone,
+            :url,
+            :email,
+            :street_address,
+            :postcode,
+            :caretaker_email,
+            :caretaker_phone,
+            category_ids: []
+        )
+    end
 
 end

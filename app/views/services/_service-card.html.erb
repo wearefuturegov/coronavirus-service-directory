@@ -1,0 +1,33 @@
+<li class="service-card<%= " service-card--recommended" if s.recommended %>">
+
+    <button class="service-card__button" data-service-id="<%= s.id %>">
+        <h2 class="service-card__name"><%= s.name %></h2>
+    </button>
+
+    <% if s[:distance] %>
+        <p class="service-card__distance"><%= rough_distance(s.distance) %></p%>
+    <% end %>
+    <p class="service-card__description"><%= s.description.truncate(160, separator: " ") %></p>
+
+    <ul class="service-card__categories">
+        <% s.categories.each do |c| %>
+            <li class="service-card__category"><%= c.name.humanize %></li>
+        <% end %>
+    </ul>
+
+    <footer class="service-card__footer">
+        <% if s.postcode.present? %>
+            <aside class="service-card__subsection">
+                <h3 class="service-card__subsection-title">Where</h3>
+                <% if s.street_address.present? %><p><%= s.street_address %></p><% end %>
+                <p><%= s.postcode %></p>
+            </aside>
+        <% end %>
+
+        <aside class="service-card__subsection">
+            <h3 class="service-card__subsection-title">Contact</h3>
+            <% if s.email.present? %><p class="service-card__email"><%= link_to s.email, "mailto:#{s.email}"%></p><% end %>
+            <% if s.phone.present? %><p class="service-card__phone"><%= s.phone %> </p><% end %>
+        </aside>
+    </footer>
+</li>

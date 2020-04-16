@@ -10,8 +10,7 @@
       gtag('config', '<%= ENV['GA_PROPERTY_ID'] %>');
     </script>
 
-    <title>Get help if you're staying at home due to coronavirus | Camden Council</title>
-    <link href="https://www.camden.gov.uk/o/camden-theme/images/favicon.ico" rel="icon" />
+    <title>Get help if you're staying at home due to coronavirus | Buckinghamshire Council</title>
     <meta name="viewport" content="width=device-width">
 
     <%= csrf_meta_tags %>
@@ -25,14 +24,14 @@
       <section class="beta-banner">
         <div class="beta-banner__inner container">
           <strong class="beta-banner__tag">Beta</strong>
-          <p class="beta-banner__message">We're updating this website every day — <a href="https://forms.gle/KccDGFHTpbcGLGob7">your feedback</a> helps us improve it.</p>
+          <p class="beta-banner__message">We're updating this website every day — <a href="https://docs.google.com/forms/d/e/1FAIpQLSdSsvGW-kMZQ2kf51fRYzkzXP_kZq7hi4hUVULr68Hj7PtpZw/viewform?usp=sf_link">your feedback</a> helps us improve it.</p>
         </div>
       </section>
 
       <header class="site-header">
         <div class="container">
-          <a href="https://www.camden.gov.uk" class="site-header__masthead">
-            <%= image_tag "logo.svg", alt: "Camden Council" %>
+          <a href="https://buckinghamshire.gov.uk" class="site-header__masthead">
+            <%= image_tag "logo.svg", alt: "Buckinghamshire Council" %>
           </a>
         </div>
       </header>
@@ -56,11 +55,10 @@
 
       <footer class="site-footer">
         <div class="container">
-          <p class="site-footer__notice">© 2020 The London Borough of Camden</p>
+          <p class="site-footer__notice">© 2020 Buckinghamshire Council</p>
           <nav class="site-footer__menu">
-            <a class="site-footer__link" href="https://www.camden.gov.uk/data-protection-privacy-and-cookies">Privacy & cookies</a>
-            <a class="site-footer__link" href="https://www.camden.gov.uk/contact-camden">Contact us</a>
-            <a class="site-footer__link" href="https://forms.gle/KccDGFHTpbcGLGob7">Give feedback on this service</a>
+            <a class="site-footer__link" href="https://www.buckinghamshire.gov.uk/about/cookies/">Privacy & cookies</a>
+            <a class="site-footer__link" href="https://docs.google.com/forms/d/e/1FAIpQLSdSsvGW-kMZQ2kf51fRYzkzXP_kZq7hi4hUVULr68Hj7PtpZw/viewform?usp=sf_link">Give feedback on this service</a>
           </nav>
         </div>
       </footer>
@@ -87,7 +85,22 @@
 
     <%= javascript_pack_tag 'application' %>
 
-    <script type="text/javascript">(function(){var sz=document.createElement("script");sz.type="text/javascript";sz.async=true;sz.src="//siteimproveanalytics.com/js/siteanalyze_310205.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(sz,s)})();</script>
+
+    <!-- Fathom - simple website analytics - https://usefathom.com -->
+    <script>
+      (function(f, a, t, h, o, m){
+      a[h]=a[h]||function(){
+      (a[h].q=a[h].q||[]).push(arguments)
+      };
+      o=f.createElement('script'),
+      m=f.getElementsByTagName('script')[0];
+      o.async=1; o.src=t; o.id='fathom-script';
+      m.parentNode.insertBefore(o,m)
+      })(document, window, 'https://cdn.usefathom.com/tracker.js', 'fathom');
+      fathom('set', 'siteId', 'HBUWQJUM');
+      fathom('trackPageview');
+    </script>
+    <!-- / Fathom -->
 
   </body>
 </html>

@@ -26,7 +26,7 @@
         border: 2px solid $text;
         width: 100%;
         &::placeholder{
-          color: transparentize($text, 0.5);
+          color: transparentize($text, 0.75);
         }
         &:focus{
           outline: 3px solid $focus;

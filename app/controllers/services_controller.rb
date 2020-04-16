@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
         if params[:postcode].present?
             @locations = Geocoder.search(params[:postcode], region: "gb")
             @services = @services.kinda_near(@locations.first.coordinates) if @locations.present?
-            flash[:alert] = "Couldn't find any services near that location. Is it a valid postcode or area in Camden?" if @services.empty? || @locations.blank?
+            flash[:alert] = "Couldn't find any services near that location. Is it a valid postcode or area in Buckinghamshire?" if @services.empty? || @locations.blank?
         end
         @services = @services.category(params[:category]) if params[:category].present?
         respond_to do |format|

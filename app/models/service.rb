@@ -12,6 +12,8 @@ class Service < ApplicationRecord
   validate :validate_caretaker
 
   scope :published, -> { where(published: true) } 
+  scope :category, -> (category) { where("categories.name in (?)", category)}
+  scope :kinda_near, -> (coordinates) { near(coordinates, 200)}
 
   def validate_contacts
     if phone.blank? && email.blank? && url.blank?

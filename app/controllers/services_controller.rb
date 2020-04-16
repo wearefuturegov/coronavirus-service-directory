@@ -4,10 +4,10 @@ class ServicesController < ApplicationController
         @services = Service.published.page(params[:page]).joins(:categories).preload(:categories).distinct
         if params[:postcode].present?
             @locations = Geocoder.search(params[:postcode], region: "gb")
-            @services = @services.near(@locations.first.coordinates, 200) if @locations.present?
+            @services = @services.kinda_near(@locations.first.coordinates) if @locations.present?
             flash[:alert] = "Couldn't find any services near that location. Is it a valid postcode or area in Camden?" if @services.empty? || @locations.blank?
         end
-        @services = @services.joins(:categories).where("categories.name in (?)", params[:category]) if params[:category].present?
+        @services = @services.category(params[:category]) if params[:category].present?
         respond_to do |format|
             format.html
             format.json { render json: ServiceSerializer.new(@services).serializable_hash }

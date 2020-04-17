@@ -29,7 +29,8 @@ const initialiseToggle = () => {
 }
 
 const createMap = async () => {
-    let res = await fetch(window.location, {
+    let query = window.location.search ? `${window.location.search}&json=true` : `?json=true`
+    let res = await fetch(`${window.location.origin}${query}`, {
         headers: {
             Accept: "application/json",
             "Cache-Control": "no-cache "

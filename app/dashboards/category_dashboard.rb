@@ -65,7 +65,7 @@ class CategoryDashboard < Administrate::BaseDashboard
   # end
 
   def display_resource(category)
-    category.long_name
+    category.long_name || category.name
   end
 
 end

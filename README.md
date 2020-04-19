@@ -1,4 +1,15 @@
-# Coronavirus response service directory
+<p align="center">
+    <a href="https://coronavirus-service-direc-demo.herokuapp.com/">
+        <img src="https://github.com/wearefuturegov/coronavirus-service-directory/blob/master/app/assets/images/logo-demo.png?raw=true" width="350px" />               
+    </a>
+</p>
+  
+<p align="center">
+    <em>Coronavirus response service directory</em>         
+</p>
+
+---
+
 
 ![Rails Unit Tests](https://github.com/wearefuturegov/coronavirus-service-directory/workflows/Rails%20Unit%20Tests/badge.svg)
 

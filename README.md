@@ -5,7 +5,7 @@
 </p>
   
 <p align="center">
-    <em>Coronavirus response service directory</em>         
+    <em>A quick, out-of-the-box service directory with geographic search and admin features</em>         
 </p>
 
 ---

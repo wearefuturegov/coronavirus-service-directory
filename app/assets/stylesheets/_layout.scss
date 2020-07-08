@@ -234,5 +234,8 @@
   }
   .calls-to-action__call{
     font-size: 1.1rem;
+    @media screen and (min-width: $breakpoint){
+      width: 50%;
+    }
   }
 }
